@@ -8,13 +8,88 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/0c995894a1.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./dist/css/styles.css" />
     <title>AuctionHouse</title>
   </head>
-  <body>
-    <header></header>
-    <main><h1 class="font-display">Hello world</h1></main>
+  <body class="font-body">
+    <header>
+      <nav class="container relative mx-auto p-5">
+        <div class="flex justify-between items-center">
+          <div class="logo font-display">AuctionHouse</div>
+          <div class="hidden md:flex">
+            <ul class="flex space-x-4">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:text-indigo hover:font-medium active:text-indigo"
+                  >Listings</a
+                >
+              </li>
+              <li>
+                <a href="" class="hover:text-indigo hover:font-medium"
+                  >Profile</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="hidden md:flex">
+            <ul class="flex space-x-4">
+              <li>
+                <a
+                  href=""
+                  class="border border-black px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                  >Log in</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="border border-black bg-black text-white px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                  >Sign up</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container p-5 mx-auto">
+      <div class="container">
+        <h1 class="font-display text-2xl">Popular listings</h1>
+      </div>
+      <div class="container">
+        <h2 class="font-display text-2xl">All listings</h2>
+        <div
+          class="space-y-4 md:flex md:space-y-0 justify-between items-baseline"
+        >
+          <p id="listingsCount">123 Listings</p>
+          <form class="flex">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              class="border-b border-darkGray"
+              placeholder="Search listings"
+            />
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass text-darkGray"></i>
+            </button>
+          </form>
+          <button
+            class="border border-indigo bg-indigo text-white px-4 py-1.5 rounded-full hover:bg-black hover:text-white hover:border-black"
+          >
+            Create new listing
+          </button>
+        </div>
+        <div class="container" id="listingsContainer"></div>
+      </div>
+    </main>
     <footer></footer>
   </body>
 </html>
