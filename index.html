@@ -10,9 +10,17 @@
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
+    />
     <script
       src="https://kit.fontawesome.com/0c995894a1.js"
       crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"
     ></script>
     <link rel="stylesheet" href="./dist/css/styles.css" />
     <title>AuctionHouse</title>
@@ -62,6 +70,11 @@
     <main class="container p-5 mx-auto">
       <div class="container">
         <h1 class="font-display text-2xl">Popular listings</h1>
+        <div
+          class="container"
+          id="default-carousel"
+          data-carousel="static"
+        ></div>
       </div>
       <div class="container">
         <h2 class="font-display text-2xl">All listings</h2>
@@ -70,16 +83,18 @@
         >
           <p id="listingsCount">123 Listings</p>
           <form class="flex">
-            <input
-              type="search"
-              name="search"
-              id="search"
-              class="border-b border-darkGray"
-              placeholder="Search listings"
-            />
-            <button type="submit">
-              <i class="fa-solid fa-magnifying-glass text-darkGray"></i>
-            </button>
+            <div class="border-b border-darkGray">
+              <input
+                type="search"
+                name="search"
+                id="search"
+                class="border-none"
+                placeholder="Search listings"
+              />
+              <button type="submit">
+                <i class="fa-solid fa-magnifying-glass text-darkGray"></i>
+              </button>
+            </div>
           </form>
           <button
             class="border border-indigo bg-indigo text-white px-4 py-1.5 rounded-full hover:bg-black hover:text-white hover:border-black"
