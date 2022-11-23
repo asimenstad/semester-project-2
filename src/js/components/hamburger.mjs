@@ -4,7 +4,6 @@ export function openMenu() {
 
   hamburgerBtn.addEventListener("click", () => {
     hamburgerBtn.classList.toggle("open");
-    menu.classList.toggle("flex");
     menu.classList.toggle("hidden");
   });
 }

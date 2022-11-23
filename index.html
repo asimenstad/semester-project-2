@@ -54,14 +54,14 @@
               <li>
                 <a
                   href=""
-                  class="border border-black px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                  class="btn border border-black px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
                   >Log in</a
                 >
               </li>
               <li>
                 <a
                   href=""
-                  class="border border-black bg-black text-white px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                  class="btn border border-black bg-black text-white px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
                   >Sign up</a
                 >
               </li>
@@ -76,7 +76,7 @@
         <div class="md:hidden">
           <ul
             id="menu"
-            class="flex-col space-y-6 py-10 w-full bg-white text-center absolute"
+            class="space-y-6 py-10 w-full bg-white text-center absolute hidden"
           >
             <li>
               <a href="" class="focus:text-indigo active:text-indigo"
@@ -91,14 +91,14 @@
             <li>
               <a
                 href=""
-                class="border border-black px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                class="btn border border-black px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
                 >Log in</a
               >
             </li>
             <li>
               <a
                 href=""
-                class="border border-black bg-black text-white px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                class="btn border border-black bg-black text-white px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
                 >Sign up</a
               >
             </li>
@@ -106,7 +106,7 @@
         </div>
       </nav>
     </header>
-    <main class="container p-5 mx-auto">
+    <main class="container p-5 mx-auto min-h-screen">
       <div class="container">
         <h1 class="font-display text-2xl">Popular listings</h1>
         <div
@@ -136,7 +136,7 @@
             </div>
           </form>
           <button
-            class="border border-indigo bg-indigo text-white px-4 py-1.5 rounded-full hover:bg-black hover:text-white hover:border-black"
+            class="btn border border-indigo bg-indigo text-white px-4 py-1.5 rounded-full hover:bg-black hover:text-white hover:border-black"
           >
             Create new listing
           </button>
@@ -144,6 +144,18 @@
         <div class="container" id="listingsContainer"></div>
       </div>
     </main>
-    <footer></footer>
+    <footer class="container mx-auto p-5">
+      <div
+        class="flex flex-col text-center justify-between items-center space-y-4 md:flex-row"
+      >
+        <div class="space-x-4 mx-auto md:mx-0 text-2xl">
+          <i class="fa-brands fa-twitter social-icon"></i>
+          <i class="fa-brands fa-facebook social-icon"></i>
+          <i class="fa-brands fa-instagram social-icon"></i>
+          <i class="fa-brands fa-linkedin social-icon"></i>
+        </div>
+        <p>&copy; 2022 AuctionHouse</p>
+      </div>
+    </footer>
   </body>
 </html>

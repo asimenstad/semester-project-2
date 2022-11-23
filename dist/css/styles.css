@@ -515,10 +515,6 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
 .block {
   display: block;
 }
@@ -527,6 +523,12 @@ video {
 }
 .hidden {
   display: none;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+.min-h-full {
+  min-height: 100%;
 }
 .w-full {
   width: 100%;
@@ -612,10 +614,6 @@ video {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
@@ -688,6 +686,24 @@ video {
   display: none;
 }
 
+.social-icon {
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  color: #21068a;
+}
+
+.btn,
+.social-icon {
+  transition: 0.2s ease-out;
+}
+
+.btn,
+.social-icon:hover {
+  transition: 0.2s ease-in;
+}
+
 .hover\:border-indigo:hover {
   --tw-border-opacity: 1;
   border-color: rgb(33 6 138 / var(--tw-border-opacity));
@@ -733,12 +749,21 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .md\:flex {
     display: flex;
   }
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
