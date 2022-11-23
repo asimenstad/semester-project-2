@@ -22,6 +22,7 @@
       defer
       src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"
     ></script>
+    <script type="module" src="./src/js/main.mjs"></script>
     <link rel="stylesheet" href="./dist/css/styles.css" />
     <title>AuctionHouse</title>
   </head>
@@ -40,7 +41,9 @@
                 >
               </li>
               <li>
-                <a href="" class="hover:text-indigo hover:font-medium"
+                <a
+                  href=""
+                  class="hover:text-indigo hover:font-medium active:text-indigo"
                   >Profile</a
                 >
               </li>
@@ -64,6 +67,42 @@
               </li>
             </ul>
           </div>
+          <button class="hamburger block md:hidden" id="menuBtn">
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+          </button>
+        </div>
+        <div class="md:hidden">
+          <ul
+            id="menu"
+            class="flex-col space-y-6 py-10 w-full bg-white text-center absolute"
+          >
+            <li>
+              <a href="" class="focus:text-indigo active:text-indigo"
+                >Listings</a
+              >
+            </li>
+            <li>
+              <a href="" class="focus:text-indigo active:text-indigo"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="border border-black px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                >Log in</a
+              >
+            </li>
+            <li>
+              <a
+                href=""
+                class="border border-black bg-black text-white px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                >Sign up</a
+              >
+            </li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -88,7 +127,7 @@
                 type="search"
                 name="search"
                 id="search"
-                class="border-none"
+                class="border-none p-1"
                 placeholder="Search listings"
               />
               <button type="submit">
