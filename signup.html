@@ -24,7 +24,7 @@
     ></script>
     <script type="module" src="./src/js/main.mjs"></script>
     <link rel="stylesheet" href="./dist/css/styles.css" />
-    <title>AuctionHouse</title>
+    <title>Sign up | AuctionHouse</title>
   </head>
   <body class="font-body">
     <header>
@@ -111,46 +111,63 @@
       </nav>
     </header>
     <main class="container p-5 mx-auto min-h-screen">
-      <div class="container">
-        <h1 class="font-display text-2xl">Popular listings</h1>
-        <div
-          class="container"
-          id="default-carousel"
-          data-carousel="static"
-        ></div>
-      </div>
-      <div class="container">
-        <h2 class="font-display text-2xl">All listings</h2>
-        <div
-          class="space-y-4 md:flex md:space-y-0 justify-between items-baseline"
-        >
-          <p id="listingsCount">123 Listings</p>
-          <form class="flex">
-            <div class="border-b border-darkGray">
-              <input
-                type="search"
-                name="search"
-                id="search"
-                class="border-none p-1"
-                placeholder="Search listings"
-              />
-              <button type="submit">
-                <i class="fa-solid fa-magnifying-glass text-darkGray"></i>
-              </button>
-            </div>
-          </form>
-          <button
-            class="btn border border-indigo bg-indigo text-white px-4 py-1.5 rounded-full hover:bg-black hover:text-white hover:border-black"
-          >
-            Create new listing
-          </button>
-        </div>
-        <div class="container" id="listingsContainer"></div>
+      <h1 class="font-display text-2xl text-center mb-5">
+        Sign up to create account
+      </h1>
+      <div
+        class="container bg-lightGray p-10 text-center max-w-lg mx-auto rounded-sm"
+      >
+        <form class="flex flex-col text-left gap-4" id="signUpForm">
+          <div class="flex flex-col">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="border-none rounded-sm p-1"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="border-none rounded-sm p-1"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="avatar">Avatar</label>
+            <input
+              type="url"
+              name="avatar"
+              id="avatar"
+              class="border-none rounded-sm p-1"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="border-none rounded-sm p-1"
+            />
+          </div>
+          <div class="mx-auto py-4">
+            <button
+              type="submit"
+              class="btn border border-indigo bg-indigo text-white px-4 py-1.5 rounded-full hover:bg-black hover:text-white hover:border-black max-w-fit"
+            >
+              Create account
+            </button>
+          </div>
+        </form>
       </div>
     </main>
     <footer class="container mx-auto p-5">
       <div
-        class="flex flex-col text-center justify-between items-center space-y-4 md:flex-row"
+        class="flex flex-col text-center justify-between items-center gap-4 md:flex-row"
       >
         <div class="space-x-4 mx-auto md:mx-0 text-2xl">
           <i class="fa-brands fa-twitter social-icon"></i>
