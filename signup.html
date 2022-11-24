@@ -119,25 +119,35 @@
       >
         <form class="flex flex-col text-left gap-4" id="signUpForm">
           <div class="flex flex-col">
-            <label for="email">Email address</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="border-none rounded-sm p-1"
-            />
-          </div>
-          <div class="flex flex-col">
-            <label for="name">Name</label>
+            <label for="name">Name*</label>
             <input
               type="text"
               name="name"
               id="name"
-              class="border-none rounded-sm p-1"
+              class="name border-none rounded-sm p-1"
+              required
             />
+            <p class="text-sm text-darkGray">
+              The name must not contain punctuation symbols apart from
+              underscore (_).
+            </p>
           </div>
           <div class="flex flex-col">
-            <label for="avatar">Avatar</label>
+            <label for="email">Email*</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="email border-none rounded-sm p-1"
+              pattern="^[\w\-.]+@(stud.)?noroff.no$"
+              required
+            />
+            <p class="text-sm text-darkGray">
+              The email must be a valid stud.noroff.no address.
+            </p>
+          </div>
+          <div class="flex flex-col">
+            <label for="avatar">Avatar (URL)</label>
             <input
               type="url"
               name="avatar"
@@ -146,14 +156,20 @@
             />
           </div>
           <div class="flex flex-col">
-            <label for="password">Password</label>
+            <label for="password">Password*</label>
             <input
               type="password"
               name="password"
               id="password"
               class="border-none rounded-sm p-1"
+              minlength="8"
+              required
             />
+            <p class="text-sm text-darkGray">
+              The password must be at least 8 characters.
+            </p>
           </div>
+          <div id="formError" class="text-center text-red-600"></div>
           <div class="mx-auto py-4">
             <button
               type="submit"
