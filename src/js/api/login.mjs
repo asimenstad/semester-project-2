@@ -1,9 +1,9 @@
-import { baseUrl, registerUrl } from "../constants/url.mjs";
+import { baseUrl, loginUrl } from "../constants/url.mjs";
 import { displayError } from "../components/errorMessage.mjs";
 
 const errorContainer = document.getElementById("formError");
 
-async function registerUser(url, data) {
+async function loginUser(url, data) {
   try {
     const postData = {
       method: "POST",
@@ -15,40 +15,29 @@ async function registerUser(url, data) {
 
     const response = await fetch(url, postData);
     const json = await response.json();
-
-    const username = json.name;
-    const avatar = json.avatar;
-    const accessToken = json.accessToken;
-
-    localStorage.setItem("username", username);
-    localStorage.setItem("avatar", avatar);
-    localStorage.setItem("accessToken", accessToken);
-
     console.log(json);
 
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
       displayError(errorContainer);
     } else {
-      window.location.href = "login.html";
+      window.location.href = "profile.html";
     }
-    const form = document.getElementById("signUpForm");
+    const form = document.getElementById("loginForm");
     form.reset();
   } catch (error) {
     console.log(error);
   }
 }
 
-export function registerUserListener() {
-  const form = document.getElementById("signUpForm");
-  const { name, email, avatar, password } = document.getElementById("signUpForm").elements;
+export function loginUserListener() {
+  const form = document.getElementById("loginForm");
+  const { email, password } = document.getElementById("loginForm").elements;
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const userData = {
-      name: name.value,
       email: email.value,
-      avatar: avatar.value,
       password: password.value,
     };
-    registerUser(`${baseUrl}${registerUrl}`, userData);
+    loginUser(`${baseUrl}${loginUrl}`, userData);
   });
 }
