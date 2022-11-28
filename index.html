@@ -26,10 +26,10 @@
     <link rel="stylesheet" href="./dist/css/styles.css" />
     <title>AuctionHouse</title>
   </head>
-  <body class="font-body">
+  <body class="font-body bg-darkGray text-white">
     <header>
-      <nav class="container relative mx-auto p-5">
-        <div class="flex justify-between items-center">
+      <nav class="container relative mx-auto">
+        <div class="flex justify-between items-center p-5">
           <div class="flex gap-10">
             <a href="index.html" class="logo font-display">AuctionHouse</a>
             <div class="hidden md:flex">
@@ -37,14 +37,14 @@
                 <li>
                   <a
                     href="index.html"
-                    class="hover:text-indigo hover:font-medium active:text-indigo"
+                    class="hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
                     >Listings</a
                   >
                 </li>
                 <li>
                   <a
                     href="profile.html"
-                    class="hover:text-indigo hover:font-medium active:text-indigo"
+                    class="hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
                     >Profile</a
                   >
                 </li>
@@ -56,14 +56,14 @@
               <li>
                 <a
                   href="login.html"
-                  class="btn border border-black px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                  class="btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
                   >Log in</a
                 >
               </li>
               <li>
                 <a
                   href="signup.html"
-                  class="btn border border-black bg-black text-white px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                  class="btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
                   >Sign up</a
                 >
               </li>
@@ -78,31 +78,29 @@
         <div class="md:hidden">
           <ul
             id="menu"
-            class="space-y-6 py-10 w-full bg-white text-center absolute hidden"
+            class="space-y-6 py-10 w-full bg-darkGray text-center absolute hidden"
           >
             <li>
-              <a href="index.html" class="focus:text-indigo active:text-indigo"
+              <a href="index.html" class="focus:text-main active:text-main"
                 >Listings</a
               >
             </li>
             <li>
-              <a
-                href="profile.html"
-                class="focus:text-indigo active:text-indigo"
+              <a href="profile.html" class="focus:text-main active:text-main"
                 >Profile</a
               >
             </li>
             <li>
               <a
                 href="login.html"
-                class="btn border border-black px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                class="btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
                 >Log in</a
               >
             </li>
             <li>
               <a
                 href="signup.html"
-                class="btn border border-black bg-black text-white px-4 py-1.5 rounded-full hover:bg-indigo hover:text-white hover:border-indigo"
+                class="btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
                 >Sign up</a
               >
             </li>
@@ -126,21 +124,21 @@
         >
           <p id="listingsCount">123 Listings</p>
           <form class="flex">
-            <div class="border-b border-darkGray">
+            <div class="border-b border-lightGray">
               <input
                 type="search"
                 name="search"
                 id="search"
-                class="border-none p-1"
+                class="border-none bg-transparent p-1 placeholder:text-lightGray"
                 placeholder="Search listings"
               />
               <button type="submit">
-                <i class="fa-solid fa-magnifying-glass text-darkGray"></i>
+                <i class="fa-solid fa-magnifying-glass text-lightGray"></i>
               </button>
             </div>
           </form>
           <button
-            class="btn border border-indigo bg-indigo text-white px-4 py-1.5 rounded-full hover:bg-black hover:text-white hover:border-black"
+            class="btn border border-main bg-main text-white px-4 py-1.5 rounded-sm hover:bg-white hover:text-black hover:border-white"
           >
             Create new listing
           </button>
