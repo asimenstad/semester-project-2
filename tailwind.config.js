@@ -8,8 +8,8 @@ module.exports = {
         body: "Raleway, sans-serif",
       },
       colors: {
-        indigo: "#21068A",
-        darkGray: "#52525B",
+        main: "#08536A",
+        darkGray: "#262626",
         lightGray: "#ECECEC",
       },
     },
