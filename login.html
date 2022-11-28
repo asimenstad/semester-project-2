@@ -26,10 +26,10 @@
     <link rel="stylesheet" href="./dist/css/styles.css" />
     <title>Log in | AuctionHouse</title>
   </head>
-  <body class="font-body">
+  <body class="font-body bg-darkGray text-white">
     <header>
-      <nav class="container relative mx-auto p-5">
-        <div class="flex justify-between items-center">
+      <nav class="container relative mx-auto">
+        <div class="flex justify-between items-center p-5">
           <div class="flex gap-10">
             <a href="index.html" class="logo font-display">AuctionHouse</a>
             <div class="hidden md:flex">
@@ -37,14 +37,14 @@
                 <li>
                   <a
                     href="index.html"
-                    class="hover:text-main hover:font-medium active:text-main"
+                    class="hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
                     >Listings</a
                   >
                 </li>
                 <li>
                   <a
                     href="profile.html"
-                    class="hover:text-main hover:font-medium active:text-main"
+                    class="hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
                     >Profile</a
                   >
                 </li>
@@ -56,14 +56,14 @@
               <li>
                 <a
                   href="login.html"
-                  class="btn border border-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                  class="btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
                   >Log in</a
                 >
               </li>
               <li>
                 <a
                   href="signup.html"
-                  class="btn border border-black bg-black text-white px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                  class="btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
                   >Sign up</a
                 >
               </li>
@@ -78,7 +78,7 @@
         <div class="md:hidden">
           <ul
             id="menu"
-            class="space-y-6 py-10 w-full bg-white text-center absolute hidden"
+            class="space-y-6 py-10 w-full bg-darkGray text-center absolute hidden"
           >
             <li>
               <a href="index.html" class="focus:text-main active:text-main"
@@ -93,14 +93,14 @@
             <li>
               <a
                 href="login.html"
-                class="btn border border-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                class="btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
                 >Log in</a
               >
             </li>
             <li>
               <a
                 href="signup.html"
-                class="btn border border-black bg-black text-white px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                class="btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
                 >Sign up</a
               >
             </li>
@@ -115,7 +115,7 @@
       <div
         class="container bg-lightGray p-10 text-center max-w-lg mx-auto rounded-sm"
       >
-        <form class="flex flex-col text-left gap-4" id="loginForm">
+        <form class="flex flex-col text-left text-black gap-4" id="loginForm">
           <div class="flex flex-col">
             <label for="email">Email address</label>
             <input
@@ -135,14 +135,12 @@
             />
           </div>
           <div id="formError" class="text-center text-red-600"></div>
-          <div class="mx-auto py-4">
-            <button
-              type="submit"
-              class="btn border border-main bg-main text-white px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black max-w-fit"
-            >
-              Log in to account
-            </button>
-          </div>
+          <button
+            type="submit"
+            class="btn border border-main bg-main text-white w-full mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black"
+          >
+            Create account
+          </button>
         </form>
       </div>
     </main>
