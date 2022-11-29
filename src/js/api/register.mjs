@@ -16,14 +16,6 @@ async function registerUser(url, data) {
     const response = await fetch(url, postData);
     const json = await response.json();
 
-    const username = json.name;
-    const avatar = json.avatar;
-    const accessToken = json.accessToken;
-
-    localStorage.setItem("username", username);
-    localStorage.setItem("avatar", avatar);
-    localStorage.setItem("accessToken", accessToken);
-
     console.log(json);
 
     if ((json.statusCode === 400) | (json.statusCode === 500)) {

@@ -15,7 +15,10 @@ async function loginUser(url, data) {
 
     const response = await fetch(url, postData);
     const json = await response.json();
-    console.log(json);
+
+    localStorage.setItem("username", json.name);
+    localStorage.setItem("avatar", json.avatar);
+    localStorage.setItem("accessToken", json.accessToken);
 
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
       displayError(errorContainer);
