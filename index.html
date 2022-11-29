@@ -115,18 +115,14 @@
     <main class="container p-5 mx-auto min-h-screen">
       <div class="container">
         <h1 class="font-display text-2xl">Popular listings</h1>
-        <div
-          class="container"
-          id="default-carousel"
-          data-carousel="static"
-        ></div>
+        <div class="container"></div>
       </div>
       <div class="container">
         <h2 class="font-display text-2xl">All listings</h2>
         <div
           class="space-y-4 md:flex md:space-y-0 justify-between items-baseline"
         >
-          <p id="listingsCount">123 Listings</p>
+          <p id="listingsCount"></p>
           <form class="flex">
             <div class="border-b border-lightGray">
               <input
@@ -147,7 +143,10 @@
             Create new listing
           </button>
         </div>
-        <div class="container" id="listingsContainer"></div>
+        <div
+          class="grid grid-cols-1 grid-flow-row mt-10 gap-5 md:grid-cols-2 lg:grid-cols-3"
+          id="listingsContainer"
+        ></div>
       </div>
     </main>
     <footer class="container mx-auto p-5">

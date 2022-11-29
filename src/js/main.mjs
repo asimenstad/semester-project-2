@@ -2,7 +2,16 @@ import { openMenu } from "./components/hamburger.mjs";
 import { registerUserListener } from "./api/register.mjs";
 import { loginUserListener } from "./api/login.mjs";
 import { fetchProfile } from "./api/fetchProfile.mjs";
-import { baseUrl, profileUrl, listingsUrl, listingsFlag, sellerFlag, bidsFlag } from "./constants/url.mjs";
+import {
+  baseUrl,
+  profileUrl,
+  listingsUrl,
+  listingsFlag,
+  sellerFlag,
+  bidsFlag,
+  sortCreatedFlag,
+  orderDescFlag,
+} from "./constants/url.mjs";
 import { fetchListings } from "./api/fetchListings.mjs";
 
 const path = location.pathname;
@@ -15,5 +24,7 @@ if (path === "/signup.html") {
   loginUserListener();
 } else if (path === "/profile.html") {
   fetchProfile(`${baseUrl}${profileUrl}?${listingsFlag}`);
-  fetchListings(`${baseUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}`);
+  fetchListings(`${baseUrl}${profileUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}`);
+} else if (path === "/index.html") {
+  fetchListings(`${baseUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}&${sortCreatedFlag}&${orderDescFlag}`);
 }

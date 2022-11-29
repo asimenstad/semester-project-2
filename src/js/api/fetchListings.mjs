@@ -12,6 +12,7 @@ export async function fetchListings(url) {
     const json = await response.json();
 
     displayListings(json);
+    displayListingsCount(json);
 
     return json;
   } catch (error) {
@@ -25,4 +26,9 @@ function displayListings(listings) {
     console.log(listing);
     container.append(listingTemplate(listing));
   });
+}
+
+function displayListingsCount(listings) {
+  const listingsCount = document.getElementById("listingsCount");
+  listingsCount.textContent = `${listings.length} Listings`;
 }

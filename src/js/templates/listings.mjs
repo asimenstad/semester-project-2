@@ -17,6 +17,9 @@ export function listingTemplate(data) {
   const mediaContainer = document.createElement("div");
   const mediaImg = document.createElement("img");
   mediaImg.src = media[0];
+  if (media.length <= 0) {
+    mediaImg.src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg";
+  }
 
   /// Info
   const infoContainer = document.createElement("div");
@@ -34,10 +37,14 @@ export function listingTemplate(data) {
   }
 
   const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
+  const updatedFormatted = new Date(updated).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
   const endsAtFormatted = new Date(endsAt).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
 
   listingSeller.textContent = name;
   listingCreated.textContent = createdFormatted;
+  if (created !== updated) {
+    listingCreated.textContent = `${updatedFormatted} (Updated)`;
+  }
   listingTitle.textContent = title;
   listingDescription.textContent = description;
 
@@ -53,12 +60,13 @@ export function listingTemplate(data) {
     "flex",
     "flex-col",
     "max-w-md",
-    "mx-auto"
+    "mx-auto",
+    "row-auto"
   );
   infoContainer.classList.add("p-6");
   listingHeader.classList.add("flex", "justify-between", "items-center", "text-midGray", "uppercase");
   listingTitle.classList.add("font-medium", "text-lg", "mt-4");
-  bidEndingContainer.classList.add("flex", "text-sm", "justify-between", "mt-4");
+  bidEndingContainer.classList.add("flex", "justify-between", "mt-4");
 
   // Append
   mediaContainer.append(mediaImg);
