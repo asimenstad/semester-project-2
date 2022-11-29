@@ -60,8 +60,7 @@ export function listingTemplate(data) {
     "flex",
     "flex-col",
     "max-w-md",
-    "mx-auto",
-    "row-auto"
+    "mx-auto"
   );
   infoContainer.classList.add("p-6");
   listingHeader.classList.add("flex", "justify-between", "items-center", "text-midGray", "uppercase");

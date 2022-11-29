@@ -549,6 +549,10 @@ video {
   max-height: -moz-min-content;
   max-height: min-content;
 }
+.max-h-fit {
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -569,6 +573,9 @@ video {
 }
 .grid-flow-col {
   grid-auto-flow: column;
+}
+.grid-flow-row-dense {
+  grid-auto-flow: row dense;
 }
 .auto-rows-auto {
   grid-auto-rows: auto;
