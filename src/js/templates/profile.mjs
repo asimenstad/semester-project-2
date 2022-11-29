@@ -4,7 +4,6 @@ export function profileTemplate(data) {
     _count: { listings },
     credits,
     avatar,
-    wins,
   } = data;
 
   // Containers
@@ -49,7 +48,7 @@ export function profileTemplate(data) {
   avatarContainer.classList.add("mx-auto", "md:mx-0", "p-8", "md:p-0");
   profileAvatar.classList.add("aspect-square", "max-w-xs");
   infoContainer.classList.add("flex", "flex-col", "p-8", "text-center", "justify-center", "gap-4", "md:text-left");
-  profileName.classList.add("font-display", "text-2xl");
+  profileName.classList.add("font-display", "text-2xl", "capitalize");
   counts.classList.add("flex", "gap-2", "mx-auto", "md:mx-0");
   buttons.classList.add("flex", "mx-auto", "gap-2", "flex-col", "md:flex-row");
 

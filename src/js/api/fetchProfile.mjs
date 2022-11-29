@@ -1,7 +1,7 @@
 import { accessToken } from "../constants/storage.mjs";
 import { profileTemplate } from "../templates/profile.mjs";
 
-export async function fetchData(url) {
+export async function fetchProfile(url) {
   try {
     const options = {
       headers: {
@@ -11,10 +11,7 @@ export async function fetchData(url) {
     const response = await fetch(url, options);
     const json = await response.json();
 
-    console.log(json);
-
     profileTemplate(json);
-
     return json;
   } catch (error) {
     console.log(error);

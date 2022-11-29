@@ -1,8 +1,9 @@
 import { openMenu } from "./components/hamburger.mjs";
 import { registerUserListener } from "./api/register.mjs";
 import { loginUserListener } from "./api/login.mjs";
-import { fetchData } from "./api/fetchData.mjs";
-import { baseUrl, profileUrl } from "./constants/url.mjs";
+import { fetchProfile } from "./api/fetchProfile.mjs";
+import { baseUrl, profileUrl, listingsUrl, listingsFlag, sellerFlag, bidsFlag } from "./constants/url.mjs";
+import { fetchListings } from "./api/fetchListings.mjs";
 
 const path = location.pathname;
 
@@ -13,5 +14,6 @@ if (path === "/signup.html") {
 } else if (path === "/login.html") {
   loginUserListener();
 } else if (path === "/profile.html") {
-  fetchData(`${baseUrl}${profileUrl}`);
+  fetchProfile(`${baseUrl}${profileUrl}?${listingsFlag}`);
+  fetchListings(`${baseUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}`);
 }
