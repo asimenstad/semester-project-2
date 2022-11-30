@@ -60,10 +60,20 @@ export function listingTemplate(data) {
     "flex",
     "flex-col",
     "max-w-md",
-    "mx-auto"
+    "mx-auto",
+    "h-fit"
   );
+  mediaImg.classList.add("min-w-full", "mx-auto");
   infoContainer.classList.add("p-6");
-  listingHeader.classList.add("flex", "justify-between", "items-center", "text-midGray", "uppercase");
+  listingHeader.classList.add(
+    "flex",
+    "flex-wrap",
+    "gap-x-1",
+    "justify-between",
+    "items-center",
+    "text-midGray",
+    "capitalize"
+  );
   listingTitle.classList.add("font-medium", "text-lg", "mt-4");
   bidEndingContainer.classList.add("flex", "justify-between", "mt-4");
 

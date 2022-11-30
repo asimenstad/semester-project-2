@@ -25,12 +25,28 @@ export function profileTemplate(data) {
   /// Info
   const profileName = document.createElement("h1");
   const counts = document.createElement("div");
-  const buttons = document.createElement("div");
 
   profileName.textContent = name;
   counts.innerHTML = `<p>${listings} Listings</p> | <p>${credits} Credits</p>`;
-  buttons.innerHTML = `<button class="btn border border-main text-main px-4 py-1.5 rounded-sm hover:bg-main hover:border-main hover:text-white">Edit avatar</button>
-  <button class="btn border border-main bg-main text-white px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black">Create new listing</button>`;
+
+  /// Buttons
+  const buttons = document.createElement("div");
+  const avatarBtn = document.createElement("button");
+  const createListingBtn = document.createElement("button");
+
+  avatarBtn.textContent = "Edit avatar";
+  createListingBtn.textContent = "Create new listing";
+
+  /// Modal
+  const modal = document.getElementById("createListingModal");
+  const exitModal = document.getElementById("closeCreateListingModal");
+  createListingBtn.addEventListener("click", () => {
+    modal.classList.toggle("hidden");
+  });
+
+  exitModal.addEventListener("click", () => {
+    modal.classList.toggle("hidden");
+  });
 
   // Classes
   profileContainer.classList.add(
@@ -51,9 +67,35 @@ export function profileTemplate(data) {
   profileName.classList.add("font-display", "text-2xl", "capitalize");
   counts.classList.add("flex", "gap-2", "mx-auto", "md:mx-0");
   buttons.classList.add("flex", "mx-auto", "gap-2", "flex-col", "md:flex-row");
+  avatarBtn.classList.add(
+    "btn",
+    "border",
+    "border-main",
+    "text-main",
+    "px-4",
+    "py-1.5",
+    "rounded-sm",
+    "hover:bg-main",
+    "hover:border-main",
+    "hover:text-white"
+  );
+  createListingBtn.classList.add(
+    "btn",
+    "border",
+    "border-main",
+    "bg-main",
+    "text-white",
+    "px-4",
+    "py-1.5",
+    "rounded-sm",
+    "hover:bg-black",
+    "hover:border-black",
+    "hover:text-white"
+  );
 
   // Append
   avatarContainer.append(profileAvatar);
+  buttons.append(avatarBtn, createListingBtn);
   infoContainer.append(profileName, counts, buttons);
   profileContainer.append(avatarContainer, infoContainer);
   container.append(profileContainer);

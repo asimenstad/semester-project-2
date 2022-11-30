@@ -23,7 +23,6 @@ export async function fetchListings(url) {
 function displayListings(listings) {
   const container = document.getElementById("listingsContainer");
   listings.forEach((listing) => {
-    console.log(listing);
     container.append(listingTemplate(listing));
   });
 }

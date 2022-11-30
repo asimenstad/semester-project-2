@@ -13,6 +13,7 @@ import {
   orderDescFlag,
 } from "./constants/url.mjs";
 import { fetchListings } from "./api/fetchListings.mjs";
+import { createListingListener } from "./api/createListing.mjs";
 
 const path = location.pathname;
 
@@ -25,6 +26,8 @@ if (path === "/signup.html") {
 } else if (path === "/profile.html") {
   fetchProfile(`${baseUrl}${profileUrl}?${listingsFlag}`);
   fetchListings(`${baseUrl}${profileUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}`);
+  createListingListener();
 } else if (path === "/index.html") {
   fetchListings(`${baseUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}&${sortCreatedFlag}&${orderDescFlag}`);
+  createListingListener();
 }
