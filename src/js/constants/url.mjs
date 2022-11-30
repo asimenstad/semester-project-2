@@ -1,12 +1,11 @@
 import { username } from "./storage.mjs";
 
 export const baseUrl = "https://api.noroff.dev/api/v1/auction";
-
 export const registerUrl = "/auth/register";
 export const loginUrl = "/auth/login";
 export const profileUrl = `/profiles/${username}`;
-export const listingsUrl = `/listings`;
-
+export const listingsUrl = "/listings";
+export const editAvatarUrl = "/media";
 export const listingsFlag = "_listings=true";
 export const sellerFlag = "_seller=true";
 export const bidsFlag = "_bids=true";

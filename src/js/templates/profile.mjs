@@ -37,15 +37,25 @@ export function profileTemplate(data) {
   avatarBtn.textContent = "Edit avatar";
   createListingBtn.textContent = "Create new listing";
 
-  /// Modal
-  const modal = document.getElementById("createListingModal");
+  /// Modals
+  const createListingModal = document.getElementById("createListingModal");
   const exitModal = document.getElementById("closeCreateListingModal");
   createListingBtn.addEventListener("click", () => {
-    modal.classList.toggle("hidden");
+    createListingModal.classList.toggle("hidden");
   });
 
   exitModal.addEventListener("click", () => {
-    modal.classList.toggle("hidden");
+    createListingModal.classList.toggle("hidden");
+  });
+
+  const editAvatarModal = document.getElementById("editAvatarModal");
+  const exitAvatarModal = document.getElementById("closeEditAvatarModal");
+  avatarBtn.addEventListener("click", () => {
+    editAvatarModal.classList.toggle("hidden");
+  });
+
+  exitAvatarModal.addEventListener("click", () => {
+    editAvatarModal.classList.toggle("hidden");
   });
 
   // Classes
