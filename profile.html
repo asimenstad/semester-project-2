@@ -188,6 +188,7 @@
                 required
               />
             </div>
+            <div id="formError" class="text-center text-red-600"></div>
             <button
               type="submit"
               class="btn border border-main bg-main text-white w-full mt-2 mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black"
@@ -198,7 +199,25 @@
         </div>
       </div>
       <h2 class="font-display text-2xl mt-10">My listings</h2>
-      <p id="listingsCount"></p>
+      <div
+        class="space-y-4 md:flex md:space-y-0 justify-between items-baseline"
+      >
+        <p id="listingsCount"></p>
+        <form class="flex" id="searchForm">
+          <div class="border-b border-lightGray">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              class="border-none bg-transparent p-1 placeholder:text-lightGray"
+              placeholder="Search listings"
+            />
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass text-lightGray"></i>
+            </button>
+          </div>
+        </form>
+      </div>
       <div
         class="grid grid-cols-1 mt-10 gap-5 md:grid-cols-2 lg:grid-cols-3"
         id="listingsContainer"

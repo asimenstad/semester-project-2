@@ -1,5 +1,6 @@
 import { accessToken } from "../constants/storage.mjs";
 import { listingTemplate } from "../templates/listings.mjs";
+import { searchListings } from "../forms/search.mjs";
 
 export async function fetchListings(url) {
   try {
@@ -13,6 +14,7 @@ export async function fetchListings(url) {
 
     displayListings(json);
     displayListingsCount(json);
+    searchListings(json);
 
     return json;
   } catch (error) {

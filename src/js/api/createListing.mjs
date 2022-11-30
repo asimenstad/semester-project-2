@@ -1,5 +1,8 @@
 import { accessToken } from "../constants/storage.mjs";
 import { baseUrl, listingsUrl } from "../constants/url.mjs";
+import { displayError } from "../components/errorMessage.mjs";
+
+const errorContainer = document.getElementById("formError");
 
 async function createListing(url, data) {
   try {
@@ -17,7 +20,7 @@ async function createListing(url, data) {
 
     console.log(json);
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
-      console.log(error);
+      displayError(errorContainer);
     } else {
       const form = document.getElementById("createListingForm");
       form.reset();
