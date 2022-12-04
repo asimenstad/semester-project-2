@@ -26,6 +26,7 @@ function displayListings(listings) {
   const container = document.getElementById("listingsContainer");
   listings.forEach((listing) => {
     container.append(listingTemplate(listing));
+    console.log(listing);
   });
 }
 

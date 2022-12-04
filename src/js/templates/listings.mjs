@@ -9,9 +9,14 @@ export function listingTemplate(data) {
     created,
     updated,
     bids,
+    tags,
   } = data;
 
-  const listing = document.createElement("div");
+  /// Container
+  const listing = document.createElement("a");
+  const listingContainer = document.createElement("div");
+
+  listing.href = `specific-listing.html?id=${id}`;
 
   /// Media
   const mediaContainer = document.createElement("div");
@@ -32,7 +37,7 @@ export function listingTemplate(data) {
   const buttonsContainer = document.createElement("div");
 
   let highestBid = "None";
-  if (bids >= 1) {
+  if (bids.length >= 1) {
     highestBid = bids.reverse()[0].amount;
   }
 
@@ -81,7 +86,8 @@ export function listingTemplate(data) {
   mediaContainer.append(mediaImg);
   listingHeader.append(listingSeller, listingCreated);
   infoContainer.append(listingHeader, listingTitle, listingDescription, bidEndingContainer, buttonsContainer);
-  listing.append(mediaContainer, infoContainer);
+  listingContainer.append(mediaContainer, infoContainer);
+  listing.append(listingContainer);
 
   return listing;
 }

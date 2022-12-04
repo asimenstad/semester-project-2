@@ -635,6 +635,9 @@ video {
 .gap-2 {
   gap: 0.5rem;
 }
+.gap-1 {
+  gap: 0.25rem;
+}
 .gap-x-1 {
   -moz-column-gap: 0.25rem;
   column-gap: 0.25rem;
@@ -932,6 +935,11 @@ video {
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.hover\:text-main:hover {
+  --tw-text-opacity: 1;
+  color: rgb(8 83 106 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
