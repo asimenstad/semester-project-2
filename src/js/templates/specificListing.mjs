@@ -61,7 +61,8 @@ export function specificListingTemplate(data) {
   <input type="number"
   name="bid"
   id="bid"
-  class="border-none rounded-sm p-1 w-full"
+  class="border-none rounded-sm p-1.5 w-full"
+  placeholder="Amount"
   required></input>
   <button type="submit"
   class="btn border border-main w-full bg-main text-white mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black">Bid</button>
@@ -83,7 +84,7 @@ export function specificListingTemplate(data) {
   /// Classes
   listing.classList.add("flex", "flex-col", "rounded-sm", "mx-auto");
   infoAndBidsContainer.classList.add("flex", "flex-col", "justify-between", "bg-lightGray", "lg:flex-row");
-  infoContainer.classList.add("p-6", "shrink");
+  infoContainer.classList.add("p-6", "flex-auto");
   listingHeader.classList.add(
     "flex",
     "flex-wrap",
@@ -98,7 +99,7 @@ export function specificListingTemplate(data) {
   bidEndingContainer.classList.add("flex", "justify-between", "py-4", "border-b", "border-gray");
   bidTitle.classList.add("font-medium", "text-lg", "mt-4");
   bidFormContainer.classList.add("flex", "items-center");
-  bidsContainer.classList.add("p-6", "bg-white", "shrink-0", "grow");
+  bidsContainer.classList.add("p-6", "bg-white", "flex-auto");
   bidsHeader.classList.add("font-medium", "text-lg");
   allBids.classList.add("divide-y", "divide-gray", "my-4", "capitalize");
 
