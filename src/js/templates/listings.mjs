@@ -38,7 +38,7 @@ export function listingTemplate(data) {
 
   let highestBid = "None";
   if (bids.length >= 1) {
-    highestBid = bids.reverse()[0].amount;
+    highestBid = `${bids.reverse()[0].amount} $`;
   }
 
   const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
