@@ -12,6 +12,7 @@ import {
   bidsFlag,
   sortCreatedFlag,
   orderDescFlag,
+  activeFlag,
 } from "./constants/url.mjs";
 import { fetchListings } from "./api/fetchListings.mjs";
 import { fetchSpecificListing } from "./api/fetchSpecificListing.mjs";
@@ -32,7 +33,7 @@ if (path === "/signup.html") {
   createListingListener();
   editAvatarListener();
 } else if (path === "/index.html") {
-  fetchListings(`${baseUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}&${sortCreatedFlag}&${orderDescFlag}`);
+  fetchListings(`${baseUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}&${sortCreatedFlag}&${orderDescFlag}&${activeFlag}`);
   createListingListener();
 } else if (path === "/specific-listing.html") {
   fetchSpecificListing(`${baseUrl}${specificListingUrl}?${sellerFlag}&${bidsFlag}`);

@@ -36,9 +36,9 @@ export function editAvatarListener() {
   const { avatar } = document.getElementById("editAvatarForm").elements;
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const userData = {
+    const data = {
       avatar: avatar.value,
     };
-    editAvatar(`${baseUrl}${profileUrl}${editAvatarUrl}`, userData);
+    editAvatar(`${baseUrl}${profileUrl}${editAvatarUrl}`, data);
   });
 }

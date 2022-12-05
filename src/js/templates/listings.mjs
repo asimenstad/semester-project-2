@@ -34,7 +34,6 @@ export function listingTemplate(data) {
   const listingTitle = document.createElement("h4");
   const listingDescription = document.createElement("p");
   const bidEndingContainer = document.createElement("div");
-  const buttonsContainer = document.createElement("div");
 
   let highestBid = "None";
   if (bids.length >= 1) {
@@ -55,6 +54,11 @@ export function listingTemplate(data) {
 
   bidEndingContainer.innerHTML = `<div class="flex flex-col"><p class="uppercase">Highest bid</p><p class="font-medium">${highestBid}</p></div>
   <div class="flex flex-col"><p class="uppercase">Ending</p><p class="font-medium">${endsAtFormatted}</p></div>`;
+
+  /// Edit and delete
+  const buttonsContainer = document.createElement("div");
+  const editBtn = document.createElement("button");
+  const deleteBtn = document.createElement("button");
 
   // Classes
   listing.classList.add(

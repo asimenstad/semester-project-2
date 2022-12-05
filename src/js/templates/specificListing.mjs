@@ -1,3 +1,6 @@
+import { bidOnListing } from "../api/bid.mjs";
+import { baseUrl, listingsUrl, bidUrl } from "../constants/url.mjs";
+
 export function specificListingTemplate(data) {
   const {
     bids,
@@ -9,6 +12,7 @@ export function specificListingTemplate(data) {
     tags,
     title,
     updated,
+    id,
   } = data;
 
   /// Containers
@@ -33,7 +37,6 @@ export function specificListingTemplate(data) {
   const listingDescription = document.createElement("p");
   const bidEndingContainer = document.createElement("div");
   const bidTitle = document.createElement("h2");
-  const bidFormContainer = document.createElement("div");
 
   const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
   const updatedFormatted = new Date(updated).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
@@ -46,7 +49,7 @@ export function specificListingTemplate(data) {
   }
   listingTitle.textContent = title;
   listingDescription.textContent = description;
-  bidTitle.textContent = "Bid on item";
+  bidTitle.textContent = "Bid on listing";
 
   let highestBid = "None";
   if (bids.length >= 1) {
@@ -56,19 +59,35 @@ export function specificListingTemplate(data) {
   bidEndingContainer.innerHTML = `<div class="flex flex-col"><p class="uppercase">Highest bid</p><p class="font-medium">${highestBid}</p></div>
   <div class="flex flex-col"><p class="uppercase">Ending</p><p class="font-medium">${endsAtFormatted}</p></div>`;
 
-  bidFormContainer.innerHTML = `<form class="my-2 flex w-full gap-2">
-  <label for="bid" class="sr-only">Bid on listing</label>
-  <input type="number"
-  name="bid"
-  id="bid"
-  class="border-none rounded-sm p-1.5 w-full"
-  placeholder="Amount"
-  required></input>
-  <button type="submit"
-  class="btn border border-main w-full bg-main text-white mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black">Bid</button>
-  </form>`;
+  /// Bid form
+  const bidFormContainer = document.createElement("div");
+  const form = document.createElement("form");
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+  const bidBtn = document.createElement("button");
 
-  /// Bids
+  form.id = "bidForm";
+
+  label.textContent = "Amount";
+  label.setAttribute("for", "amount");
+
+  input.setAttribute("type", "number");
+  input.setAttribute("name", "amount");
+  input.setAttribute("required", "");
+  input.placeholder = "Amount";
+
+  bidBtn.textContent = "Bid";
+  bidBtn.setAttribute("type", "submit");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = {
+      amount: parseInt(input.value),
+    };
+    bidOnListing(`${baseUrl}${listingsUrl}/${id}${bidUrl}`, data);
+  });
+
+  /// Bids displayed
   const bidsContainer = document.createElement("div");
   const bidsHeader = document.createElement("h2");
   const allBids = document.createElement("div");
@@ -102,10 +121,30 @@ export function specificListingTemplate(data) {
   bidsContainer.classList.add("p-6", "bg-white", "flex-auto");
   bidsHeader.classList.add("font-medium", "text-lg");
   allBids.classList.add("divide-y", "divide-gray", "my-4", "capitalize");
+  form.classList.add("flex", "my-2", "w-full", "gap-2");
+  label.classList.add("sr-only");
+  input.classList.add("border-none", "rounded-sm", "p-1.5", "w-full");
+  bidBtn.classList.add(
+    "btn",
+    "border",
+    "border-main",
+    "w-full",
+    "bg-main",
+    "text-white",
+    "mx-auto",
+    "px-4",
+    "py-1.5",
+    "rounded-sm",
+    "hover:bg-black",
+    "hover:text-white",
+    "hover:border-black"
+  );
 
   /// Append
   mediaContainer.append(mediaImg);
   listingHeader.append(listingSeller, listingCreated);
+  form.append(label, input, bidBtn);
+  bidFormContainer.append(form);
   infoContainer.append(listingHeader, listingTitle, listingDescription, bidEndingContainer, bidTitle, bidFormContainer);
   bidsContainer.append(bidsHeader, allBids);
   infoAndBidsContainer.append(infoContainer, bidsContainer);

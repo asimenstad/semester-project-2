@@ -8,8 +8,11 @@ export const profileUrl = `/profiles/${username}`;
 export const listingsUrl = "/listings";
 export const specificListingUrl = `${listingsUrl}/${id}`;
 export const editAvatarUrl = "/media";
+export const bidUrl = "/bids";
+
 export const listingsFlag = "_listings=true";
 export const sellerFlag = "_seller=true";
 export const bidsFlag = "_bids=true";
 export const sortCreatedFlag = "sort=created";
 export const orderDescFlag = "sortOrder=desc";
+export const activeFlag = "_active=true";
