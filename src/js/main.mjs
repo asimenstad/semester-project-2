@@ -1,6 +1,6 @@
 import { openMenu } from "./components/hamburger.mjs";
-import { registerUserListener } from "./api/register.mjs";
-import { loginUserListener } from "./api/login.mjs";
+import { registerUserListener } from "./listeners/registerListener.mjs";
+import { loginUserListener } from "./listeners/loginListener.mjs";
 import { fetchProfile } from "./api/fetchProfile.mjs";
 import {
   baseUrl,
