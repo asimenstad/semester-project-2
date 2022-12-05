@@ -11,6 +11,7 @@ module.exports = {
         main: "#08536A",
         darkGray: "#262626",
         midGray: "#878787",
+        gray: "#C1C1C1",
         lightGray: "#ECECEC",
       },
     },

@@ -36,13 +36,13 @@ export function createListingListener() {
   const { title, description, tags, media, ending } = document.getElementById("createListingForm").elements;
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const userData = {
+    const data = {
       title: title.value,
       description: description.value,
       tags: [tags.value],
       media: [media.value],
       endsAt: ending.value,
     };
-    createListing(`${baseUrl}${listingsUrl}`, userData);
+    createListing(`${baseUrl}${listingsUrl}`, data);
   });
 }

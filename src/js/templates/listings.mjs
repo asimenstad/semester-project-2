@@ -9,9 +9,14 @@ export function listingTemplate(data) {
     created,
     updated,
     bids,
+    tags,
   } = data;
 
-  const listing = document.createElement("div");
+  /// Container
+  const listing = document.createElement("a");
+  const listingContainer = document.createElement("div");
+
+  listing.href = `specific-listing.html?id=${id}`;
 
   /// Media
   const mediaContainer = document.createElement("div");
@@ -29,11 +34,10 @@ export function listingTemplate(data) {
   const listingTitle = document.createElement("h4");
   const listingDescription = document.createElement("p");
   const bidEndingContainer = document.createElement("div");
-  const buttonsContainer = document.createElement("div");
 
   let highestBid = "None";
-  if (bids >= 1) {
-    highestBid = bids.reverse()[0].amount;
+  if (bids.length >= 1) {
+    highestBid = `${bids.reverse()[0].amount} $`;
   }
 
   const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
@@ -50,6 +54,11 @@ export function listingTemplate(data) {
 
   bidEndingContainer.innerHTML = `<div class="flex flex-col"><p class="uppercase">Highest bid</p><p class="font-medium">${highestBid}</p></div>
   <div class="flex flex-col"><p class="uppercase">Ending</p><p class="font-medium">${endsAtFormatted}</p></div>`;
+
+  /// Edit and delete
+  const buttonsContainer = document.createElement("div");
+  const editBtn = document.createElement("button");
+  const deleteBtn = document.createElement("button");
 
   // Classes
   listing.classList.add(
@@ -81,7 +90,8 @@ export function listingTemplate(data) {
   mediaContainer.append(mediaImg);
   listingHeader.append(listingSeller, listingCreated);
   infoContainer.append(listingHeader, listingTitle, listingDescription, bidEndingContainer, buttonsContainer);
-  listing.append(mediaContainer, infoContainer);
+  listingContainer.append(mediaContainer, infoContainer);
+  listing.append(listingContainer);
 
   return listing;
 }
