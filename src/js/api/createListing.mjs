@@ -1,10 +1,9 @@
 import { accessToken } from "../constants/storage.mjs";
-import { baseUrl, listingsUrl } from "../constants/url.mjs";
 import { displayError } from "../components/errorMessage.mjs";
 
 const errorContainer = document.getElementById("formError");
 
-async function createListing(url, data) {
+export async function createListing(url, data) {
   try {
     const postData = {
       method: "POST",
@@ -20,7 +19,8 @@ async function createListing(url, data) {
 
     console.log(json);
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
-      displayError(errorContainer);
+      const errorMessage = json.errors[0].message;
+      displayError(errorContainer, errorMessage);
     } else {
       const form = document.getElementById("createListingForm");
       form.reset();
@@ -29,20 +29,4 @@ async function createListing(url, data) {
   } catch (error) {
     console.log(error);
   }
-}
-
-export function createListingListener() {
-  const form = document.getElementById("createListingForm");
-  const { title, description, tags, media, ending } = document.getElementById("createListingForm").elements;
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const data = {
-      title: title.value,
-      description: description.value,
-      tags: [tags.value],
-      media: [media.value],
-      endsAt: ending.value,
-    };
-    createListing(`${baseUrl}${listingsUrl}`, data);
-  });
 }

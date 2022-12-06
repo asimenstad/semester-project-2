@@ -11,10 +11,9 @@ export async function deleteListing(url) {
     };
 
     const response = await fetch(url, deleteData);
-    const json = await response.json();
-
-    window.location.href = "/profile.html";
-    return json;
+    if (response.ok) {
+      window.location.href = "/profile.html";
+    }
   } catch (error) {
     console.log(error);
   }

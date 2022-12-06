@@ -1,3 +1,3 @@
-export function displayError(container) {
-  container.innerHTML = `<p>Sorry! An error occurred. Please try again.</p>`;
+export function displayError(container, error) {
+  container.innerHTML = `${error}`;
 }

@@ -16,7 +16,7 @@ import {
 } from "./constants/url.mjs";
 import { fetchListings } from "./api/fetchListings.mjs";
 import { fetchSpecificListing } from "./api/fetchSpecificListing.mjs";
-import { createListingListener } from "./api/createListing.mjs";
+import { createListingListener } from "./listeners/createListingListener.mjs";
 import { editAvatarListener } from "./listeners/editAvatarListener.mjs";
 import { editListingListener } from "./listeners/editListingListener.mjs";
 import { logout } from "./listeners/logoutListener.mjs";

@@ -17,9 +17,9 @@ export async function editListing(url, data) {
     const response = await fetch(url, putData);
     const json = await response.json();
 
-    console.log(json);
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
-      displayError(errorContainer);
+      const errorMessage = json.errors[0].message;
+      displayError(errorContainer, errorMessage);
     } else {
       const form = document.getElementById("editListingForm");
       form.reset();
