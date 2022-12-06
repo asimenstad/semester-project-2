@@ -68,7 +68,7 @@ export function listingTemplate(data) {
     "text-black",
     "flex",
     "flex-col",
-    "max-w-md",
+    "max-w-xl",
     "mx-auto",
     "h-fit"
   );
