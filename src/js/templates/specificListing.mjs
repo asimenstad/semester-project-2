@@ -122,6 +122,18 @@ export function specificListingTemplate(data) {
   tagsInput.value = tags;
   mediaInput.value = media;
 
+  //// Delete listing modal
+  const deleteModal = document.getElementById("deleteListingModal");
+  const closeDeleteModal = document.getElementById("closeDeleteListingModal");
+
+  deleteBtn.addEventListener("click", () => {
+    deleteModal.classList.toggle("hidden");
+  });
+
+  closeDeleteModal.addEventListener("click", () => {
+    deleteModal.classList.toggle("hidden");
+  });
+
   /// Bids displayed
   const bidsContainer = document.createElement("div");
   const bidsHeader = document.createElement("h2");
@@ -201,9 +213,9 @@ export function specificListingTemplate(data) {
     "px-4",
     "py-1.5",
     "rounded-sm",
-    "hover:bg-red-800",
+    "hover:bg-main",
     "hover:text-white",
-    "hover:border-red-800"
+    "hover:border-main"
   );
 
   /// Append

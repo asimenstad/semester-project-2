@@ -20,6 +20,7 @@ import { createListingListener } from "./api/createListing.mjs";
 import { editAvatarListener } from "./listeners/editAvatarListener.mjs";
 import { editListingListener } from "./listeners/editListingListener.mjs";
 import { logout } from "./listeners/logoutListener.mjs";
+import { deleteListingListener } from "./listeners/deleteListingListener.mjs";
 
 const path = location.pathname;
 
@@ -41,4 +42,5 @@ if (path === "/signup.html") {
 } else if (path === "/specific-listing.html") {
   fetchSpecificListing(`${baseUrl}${specificListingUrl}?${sellerFlag}&${bidsFlag}`);
   editListingListener();
+  deleteListingListener();
 }
