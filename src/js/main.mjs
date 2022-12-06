@@ -18,10 +18,12 @@ import { fetchListings } from "./api/fetchListings.mjs";
 import { fetchSpecificListing } from "./api/fetchSpecificListing.mjs";
 import { createListingListener } from "./api/createListing.mjs";
 import { editAvatarListener } from "./api/editAvatar.mjs";
+import { logout } from "./listeners/logoutListener.mjs";
 
 const path = location.pathname;
 
 openMenu();
+logout();
 
 if (path === "/signup.html") {
   registerUserListener();

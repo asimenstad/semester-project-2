@@ -56,16 +56,26 @@
               <li>
                 <a
                   href="login.html"
-                  class="btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
+                  id="loginBtn"
+                  class="logged-out btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
                   >Log in</a
                 >
               </li>
               <li>
                 <a
                   href="signup.html"
-                  class="btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                  id="signupBtn"
+                  class="logged-out btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
                   >Sign up</a
                 >
+              </li>
+              <li>
+                <button
+                  id="logoutBtn"
+                  class="logged-in hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
+                >
+                  Log out
+                </button>
               </li>
             </ul>
           </div>
@@ -97,16 +107,26 @@
             <li>
               <a
                 href="login.html"
-                class="btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
+                id="loginBtn"
+                class="login btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
                 >Log in</a
               >
             </li>
             <li>
               <a
                 href="signup.html"
-                class="btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                id="signupBtn"
+                class="signup btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
                 >Sign up</a
               >
+            </li>
+            <li>
+              <button
+                id="logoutBtn"
+                class="logout hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
+              >
+                Log out
+              </button>
             </li>
           </ul>
         </div>
