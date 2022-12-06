@@ -17,7 +17,8 @@ import {
 import { fetchListings } from "./api/fetchListings.mjs";
 import { fetchSpecificListing } from "./api/fetchSpecificListing.mjs";
 import { createListingListener } from "./api/createListing.mjs";
-import { editAvatarListener } from "./api/editAvatar.mjs";
+import { editAvatarListener } from "./listeners/editAvatarListener.mjs";
+import { editListingListener } from "./listeners/editListingListener.mjs";
 import { logout } from "./listeners/logoutListener.mjs";
 
 const path = location.pathname;
@@ -39,4 +40,5 @@ if (path === "/signup.html") {
   createListingListener();
 } else if (path === "/specific-listing.html") {
   fetchSpecificListing(`${baseUrl}${specificListingUrl}?${sellerFlag}&${bidsFlag}`);
+  editListingListener();
 }

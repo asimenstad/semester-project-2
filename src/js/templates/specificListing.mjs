@@ -1,5 +1,6 @@
 import { bidOnListing } from "../api/bid.mjs";
 import { baseUrl, listingsUrl, bidUrl } from "../constants/url.mjs";
+import { username } from "../constants/storage.mjs";
 
 export function specificListingTemplate(data) {
   const {
@@ -36,7 +37,6 @@ export function specificListingTemplate(data) {
   const listingTitle = document.createElement("h1");
   const listingDescription = document.createElement("p");
   const bidEndingContainer = document.createElement("div");
-  const bidTitle = document.createElement("h2");
 
   const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
   const updatedFormatted = new Date(updated).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
@@ -49,7 +49,6 @@ export function specificListingTemplate(data) {
   }
   listingTitle.textContent = title;
   listingDescription.textContent = description;
-  bidTitle.textContent = "Bid on listing";
 
   let highestBid = "None";
   if (bids.length >= 1) {
@@ -61,10 +60,13 @@ export function specificListingTemplate(data) {
 
   /// Bid form
   const bidFormContainer = document.createElement("div");
+  const bidTitle = document.createElement("h2");
   const form = document.createElement("form");
   const label = document.createElement("label");
   const input = document.createElement("input");
   const bidBtn = document.createElement("button");
+
+  bidTitle.textContent = "Bid on listing";
 
   form.id = "bidForm";
 
@@ -86,6 +88,39 @@ export function specificListingTemplate(data) {
     };
     bidOnListing(`${baseUrl}${listingsUrl}/${id}${bidUrl}`, data);
   });
+
+  /// Edit and delete
+  const editDeleteContainer = document.createElement("div");
+  const editBtn = document.createElement("button");
+  const deleteBtn = document.createElement("button");
+
+  editBtn.textContent = "Edit listing";
+  deleteBtn.textContent = "Delete listing";
+
+  if (name === username) {
+    bidFormContainer.classList.add("hidden");
+  } else {
+    editDeleteContainer.classList.add("hidden");
+  }
+
+  //// Edit listing modal
+  const editModal = document.getElementById("editListingModal");
+  const closeEditModal = document.getElementById("closeEditListingModal");
+
+  const { titleInput, descriptionInput, tagsInput, mediaInput } = document.getElementById("editListingForm").elements;
+
+  editBtn.addEventListener("click", () => {
+    editModal.classList.toggle("hidden");
+  });
+
+  closeEditModal.addEventListener("click", () => {
+    editModal.classList.toggle("hidden");
+  });
+
+  titleInput.value = title;
+  descriptionInput.value = description;
+  tagsInput.value = tags;
+  mediaInput.value = media;
 
   /// Bids displayed
   const bidsContainer = document.createElement("div");
@@ -116,8 +151,8 @@ export function specificListingTemplate(data) {
   listingTitle.classList.add("font-medium", "text-lg", "mt-4");
   listingDescription.classList.add("max-w-lg");
   bidEndingContainer.classList.add("flex", "justify-between", "py-4", "border-b", "border-gray");
-  bidTitle.classList.add("font-medium", "text-lg", "mt-4");
-  bidFormContainer.classList.add("flex", "items-center");
+  bidFormContainer.classList.add("flex", "items-center", "flex-wrap", "mt-4");
+  bidTitle.classList.add("font-medium", "text-lg", "w-full");
   bidsContainer.classList.add("p-6", "bg-white", "flex-auto");
   bidsHeader.classList.add("font-medium", "text-lg");
   allBids.classList.add("divide-y", "divide-gray", "my-4", "capitalize");
@@ -139,13 +174,52 @@ export function specificListingTemplate(data) {
     "hover:text-white",
     "hover:border-black"
   );
+  editDeleteContainer.classList.add("flex", "items-center", "gap-2", "mt-6");
+  editBtn.classList.add(
+    "btn",
+    "border",
+    "border-main",
+    "w-full",
+    "bg-main",
+    "text-white",
+    "mx-auto",
+    "px-4",
+    "py-1.5",
+    "rounded-sm",
+    "hover:bg-black",
+    "hover:text-white",
+    "hover:border-black"
+  );
+  deleteBtn.classList.add(
+    "btn",
+    "border",
+    "border-main",
+    "w-full",
+    "bg-none",
+    "text-main",
+    "mx-auto",
+    "px-4",
+    "py-1.5",
+    "rounded-sm",
+    "hover:bg-red-800",
+    "hover:text-white",
+    "hover:border-red-800"
+  );
 
   /// Append
   mediaContainer.append(mediaImg);
   listingHeader.append(listingSeller, listingCreated);
   form.append(label, input, bidBtn);
-  bidFormContainer.append(form);
-  infoContainer.append(listingHeader, listingTitle, listingDescription, bidEndingContainer, bidTitle, bidFormContainer);
+  bidFormContainer.append(bidTitle, form);
+  editDeleteContainer.append(editBtn, deleteBtn);
+  infoContainer.append(
+    listingHeader,
+    listingTitle,
+    listingDescription,
+    bidEndingContainer,
+    bidFormContainer,
+    editDeleteContainer
+  );
   bidsContainer.append(bidsHeader, allBids);
   infoAndBidsContainer.append(infoContainer, bidsContainer);
   listing.append(mediaContainer, infoAndBidsContainer);

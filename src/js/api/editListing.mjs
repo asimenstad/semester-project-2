@@ -3,7 +3,7 @@ import { displayError } from "../components/errorMessage.mjs";
 
 const errorContainer = document.getElementById("formError");
 
-export async function editAvatar(url, data) {
+export async function editListing(url, data) {
   try {
     const putData = {
       method: "PUT",
@@ -21,7 +21,7 @@ export async function editAvatar(url, data) {
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
       displayError(errorContainer);
     } else {
-      const form = document.getElementById("editAvatarForm");
+      const form = document.getElementById("editListingForm");
       form.reset();
       window.location.reload();
     }
