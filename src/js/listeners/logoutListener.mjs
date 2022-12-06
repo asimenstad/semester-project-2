@@ -3,8 +3,9 @@ import { accessToken } from "../constants/storage.mjs";
 export function logout() {
   const isLoggedIn = document.querySelectorAll(".logged-in");
   const isLoggedOut = document.querySelectorAll(".logged-out");
+  const logoutBtn = document.querySelectorAll(".logout-btn");
 
-  if (accessToken !== "") {
+  if (accessToken) {
     isLoggedIn.forEach((logoutBtn) => {
       logoutBtn.classList.remove("hidden");
     });
@@ -20,15 +21,12 @@ export function logout() {
     });
   }
 
-  console.log(isLoggedOut);
-  /* 
-  logoutBtns.forEach((logout) => {
+  logoutBtn.forEach((logout) => {
     logout.addEventListener("click", () => {
       localStorage.removeItem("accessToken");
-      localStorage.removeItem("name");
+      localStorage.removeItem("username");
       localStorage.removeItem("avatar");
       window.location.href = "/index.html";
     });
   });
-  */
 }

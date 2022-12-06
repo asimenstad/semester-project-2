@@ -44,7 +44,7 @@
                 <li>
                   <a
                     href="profile.html"
-                    class="hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                    class="logged-in hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
                     >Profile</a
                   >
                 </li>
@@ -56,7 +56,6 @@
               <li>
                 <a
                   href="login.html"
-                  id="loginBtn"
                   class="logged-out btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
                   >Log in</a
                 >
@@ -64,15 +63,13 @@
               <li>
                 <a
                   href="signup.html"
-                  id="signupBtn"
                   class="logged-out btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
                   >Sign up</a
                 >
               </li>
               <li>
                 <button
-                  id="logoutBtn"
-                  class="logged-in hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
+                  class="logged-in logout-btn hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
                 >
                   Log out
                 </button>
@@ -100,30 +97,28 @@
             <li>
               <a
                 href="profile.html"
-                class="focus:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                class="logged-in focus:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
                 >Profile</a
               >
             </li>
             <li>
               <a
                 href="login.html"
-                id="loginBtn"
-                class="login btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
+                class="logged-out btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
                 >Log in</a
               >
             </li>
             <li>
               <a
                 href="signup.html"
-                id="signupBtn"
-                class="signup btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                class="logged-out btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
                 >Sign up</a
               >
             </li>
             <li>
               <button
                 id="logoutBtn"
-                class="logout hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
+                class="logged-in logout-btn hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
               >
                 Log out
               </button>
