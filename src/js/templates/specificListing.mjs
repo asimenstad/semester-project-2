@@ -16,20 +16,76 @@ export function specificListingTemplate(data) {
     id,
   } = data;
 
-  /// Containers
   const listing = document.createElement("div");
+
+  /// Media carousel
   const mediaContainer = document.createElement("div");
-  const infoAndBidsContainer = document.createElement("div");
+  const carouselContainer = document.createElement("div");
+  const sliderLeft = document.createElement("button");
+  const sliderRight = document.createElement("button");
 
-  /// Media
-  const mediaImg = document.createElement("img");
+  media.forEach((img) => {
+    carouselContainer.innerHTML += `<div class="duration-700 ease-in-out hidden" data-carousel-item><img src="${img}" alt="${title}" class=" absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" /></div>`;
+    carouselContainer.firstChild.dataset.carouselItem = "active";
+  });
 
-  mediaImg.src = media[0];
-  if (media.length <= 0) {
+  sliderLeft.innerHTML = `<i class="fa-solid fa-circle-chevron-left text-2xl text-main hover:text-black"></i><span class="sr-only">Previous</span>`;
+  sliderRight.innerHTML = `<i class="fa-solid fa-circle-chevron-right text-2xl text-main hover:text-black"></i><span class="sr-only">Previous</span>`;
+
+  mediaContainer.id = "controls-carousel";
+  mediaContainer.dataset.carousel = "static";
+  sliderLeft.dataset.carouselPrev = "";
+  sliderRight.dataset.carouselNext = "";
+
+  mediaContainer.classList.add("relative");
+  carouselContainer.classList.add("relative", "overflow-hidden", "h-96");
+  sliderLeft.classList.add("top-2/4", "left-5", "z-30", "flex", "items-center", "absolute", "btn");
+  sliderRight.classList.add("top-2/4", "right-5", "z-30", "flex", "items-center", "absolute", "btn");
+
+  mediaContainer.append(carouselContainer, sliderLeft, sliderRight);
+
+  /*
+  const sliderContainer = document.createElement("div");
+  
+
+  
+
+  mediaContainer.classList.add("relative", "z-0");
+  sliderContainer.classList.add("flex", "m-auto", "w-100", "overflow-hidden");
+  
+
+  if (media.length === 0) {
+    const mediaImg = document.createElement("img");
+    mediaImg.classList.add("media-img");
     mediaImg.src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg";
-  }
+    mediaContainer.append(mediaImg);
+  } else {
+    media.forEach((img) => {
+      const mediaImg = document.createElement("img");
+      const mediaSlide = document.createElement("div");
+      mediaImg.src = img;
+      mediaImg.classList.add("media-img");
+      mediaSlide.classList.add("max-w-full", "shrink-0");
+      mediaSlide.append(mediaImg);
+      sliderContainer.append(mediaSlide);
+      mediaContainer.append(sliderContainer, sliderLeft, sliderRight);
 
+      let slideCounter = 0;
+
+      sliderRight.addEventListener("click", () => {
+        slideCounter++;
+        console.log(mediaContainer);
+        
+        mediaSlide.forEach((slide) => {
+          slide.style.transform += `translateX(-${slide.width}px)`;
+        });
+        
+      });
+    });
+  }
+*/
   /// Info
+  const infoAndBidsContainer = document.createElement("div");
   const infoContainer = document.createElement("div");
   const listingHeader = document.createElement("div");
   const listingSeller = document.createElement("p");
@@ -219,7 +275,7 @@ export function specificListingTemplate(data) {
   );
 
   /// Append
-  mediaContainer.append(mediaImg);
+
   listingHeader.append(listingSeller, listingCreated);
   form.append(label, input, bidBtn);
   bidFormContainer.append(bidTitle, form);

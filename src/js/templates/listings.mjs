@@ -55,11 +55,6 @@ export function listingTemplate(data) {
   bidEndingContainer.innerHTML = `<div class="flex flex-col"><p class="uppercase">Highest bid</p><p class="font-medium">${highestBid}</p></div>
   <div class="flex flex-col"><p class="uppercase">Ending</p><p class="font-medium">${endsAtFormatted}</p></div>`;
 
-  /// Edit and delete
-  const buttonsContainer = document.createElement("div");
-  const editBtn = document.createElement("button");
-  const deleteBtn = document.createElement("button");
-
   // Classes
   listing.classList.add(
     "container",
@@ -70,9 +65,10 @@ export function listingTemplate(data) {
     "flex-col",
     "max-w-xl",
     "mx-auto",
-    "h-fit"
+    "listing"
   );
-  mediaImg.classList.add("min-w-full", "mx-auto");
+  mediaContainer.classList.add("media-container");
+  mediaImg.classList.add("w-full", "mx-auto", "media-img");
   infoContainer.classList.add("p-6");
   listingHeader.classList.add(
     "flex",
@@ -84,12 +80,13 @@ export function listingTemplate(data) {
     "capitalize"
   );
   listingTitle.classList.add("font-medium", "text-lg", "mt-4");
+  listingDescription.classList.add("truncate");
   bidEndingContainer.classList.add("flex", "justify-between", "mt-4");
 
   // Append
   mediaContainer.append(mediaImg);
   listingHeader.append(listingSeller, listingCreated);
-  infoContainer.append(listingHeader, listingTitle, listingDescription, bidEndingContainer, buttonsContainer);
+  infoContainer.append(listingHeader, listingTitle, listingDescription, bidEndingContainer);
   listingContainer.append(mediaContainer, infoContainer);
   listing.append(listingContainer);
 

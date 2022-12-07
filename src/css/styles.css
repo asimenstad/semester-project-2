@@ -58,10 +58,28 @@
 
 .btn,
 .social-icon {
-  transition: 0.2s ease-out;
+  transition: 0.2s all ease-out;
 }
 
 .btn,
 .social-icon:hover {
-  transition: 0.2s ease-in;
+  transition: 0.2s all ease-in;
+}
+
+.media-img {
+  aspect-ratio: 7/5;
+  object-fit: cover;
+  width: 100%;
+}
+
+.media-container {
+  overflow: hidden;
+}
+
+.media-img {
+  transition: 0.2s all ease-in-out;
+}
+
+.listing:hover .media-img {
+  transform: scale(1.1);
 }
