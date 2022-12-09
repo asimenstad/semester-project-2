@@ -210,21 +210,37 @@
                 ></textarea>
               </div>
               <div class="flex flex-col">
-                <label for="name">Tags</label>
+                <div class="flex justify-between">
+                  <label for="tags">Tags</label>
+                  <button class="btn" id="tagsBtn">
+                    <i
+                      class="fa-regular fa-square-plus text-main hover:text-black"
+                    ></i>
+                  </button>
+                </div>
                 <input
                   type="text"
                   name="tags"
                   id="tags"
-                  class="border-none rounded-sm p-1"
+                  class="border-none rounded-sm p-1 mb-1"
+                  minlength="1"
                 />
               </div>
               <div class="flex flex-col">
-                <label for="name">Media</label>
+                <div class="flex justify-between">
+                  <label for="media">Media</label>
+                  <button class="btn" id="mediaBtn">
+                    <i
+                      class="fa-regular fa-square-plus text-main hover:text-black"
+                    ></i>
+                  </button>
+                </div>
                 <input
                   type="url"
                   name="media"
                   id="media"
-                  class="border-none rounded-sm p-1"
+                  class="border-none rounded-sm p-1 mb-1"
+                  minlength="1"
                 />
               </div>
               <div class="flex flex-col">

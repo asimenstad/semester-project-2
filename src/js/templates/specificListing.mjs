@@ -29,14 +29,13 @@ export function specificListingTemplate(data) {
   const btnRight = document.createElement("button");
 
   media.forEach((img) => {
-    slides.innerHTML += `<li class="absolute inset-0 opacity-0 ease-in-out"><img src="${img}" alt="${title}" class="block media-img" /></li>`;
+    slides.innerHTML += `<li class="absolute inset-0 opacity-0 transition-opacity duration-200 ease-in-out"><img src="${img}" alt="${title}" class="block media-img" /></li>`;
     slides.firstChild.dataset.active = true;
   });
 
   btnLeft.innerHTML = `<i class="fa-solid fa-circle-chevron-left text-2xl text-main hover:text-black"></i><span class="sr-only">Previous</span>`;
   btnRight.innerHTML = `<i class="fa-solid fa-circle-chevron-right text-2xl text-main hover:text-black"></i><span class="sr-only">Previous</span>`;
 
-  mediaContainer.dataset.carousel = true;
   btnLeft.dataset.carouselBtn = "left";
   btnRight.dataset.carouselBtn = "right";
 
