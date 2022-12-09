@@ -16,74 +16,59 @@ export function specificListingTemplate(data) {
     id,
   } = data;
 
+  if (media.length === 0) {
+    media.push("https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg");
+  }
+
   const listing = document.createElement("div");
 
-  /// Media carousel
+  /// Carousel
   const mediaContainer = document.createElement("div");
-  const carouselContainer = document.createElement("div");
-  const sliderLeft = document.createElement("button");
-  const sliderRight = document.createElement("button");
+  const slides = document.createElement("ul");
+  const btnLeft = document.createElement("button");
+  const btnRight = document.createElement("button");
 
   media.forEach((img) => {
-    carouselContainer.innerHTML += `<div class="duration-700 ease-in-out hidden" data-carousel-item><img src="${img}" alt="${title}" class=" absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" /></div>`;
-    carouselContainer.firstChild.dataset.carouselItem = "active";
+    slides.innerHTML += `<li class="absolute inset-0 opacity-0 ease-in-out"><img src="${img}" alt="${title}" class="block media-img" /></li>`;
+    slides.firstChild.dataset.active = true;
   });
 
-  sliderLeft.innerHTML = `<i class="fa-solid fa-circle-chevron-left text-2xl text-main hover:text-black"></i><span class="sr-only">Previous</span>`;
-  sliderRight.innerHTML = `<i class="fa-solid fa-circle-chevron-right text-2xl text-main hover:text-black"></i><span class="sr-only">Previous</span>`;
+  btnLeft.innerHTML = `<i class="fa-solid fa-circle-chevron-left text-2xl text-main hover:text-black"></i><span class="sr-only">Previous</span>`;
+  btnRight.innerHTML = `<i class="fa-solid fa-circle-chevron-right text-2xl text-main hover:text-black"></i><span class="sr-only">Previous</span>`;
 
-  mediaContainer.id = "controls-carousel";
-  mediaContainer.dataset.carousel = "static";
-  sliderLeft.dataset.carouselPrev = "";
-  sliderRight.dataset.carouselNext = "";
+  mediaContainer.dataset.carousel = true;
+  btnLeft.dataset.carouselBtn = "left";
+  btnRight.dataset.carouselBtn = "right";
 
   mediaContainer.classList.add("relative");
-  carouselContainer.classList.add("relative", "overflow-hidden", "h-96");
-  sliderLeft.classList.add("top-2/4", "left-5", "z-30", "flex", "items-center", "absolute", "btn");
-  sliderRight.classList.add("top-2/4", "right-5", "z-30", "flex", "items-center", "absolute", "btn");
+  slides.classList.add("relative", "overflow-hidden", "media-img");
+  btnLeft.classList.add("top-2/4", "left-5", "z-30", "flex", "items-center", "absolute", "btn");
+  btnRight.classList.add("top-2/4", "right-5", "z-30", "flex", "items-center", "absolute", "btn");
 
-  mediaContainer.append(carouselContainer, sliderLeft, sliderRight);
+  mediaContainer.append(slides, btnLeft, btnRight);
 
-  /*
-  const sliderContainer = document.createElement("div");
-  
-
-  
-
-  mediaContainer.classList.add("relative", "z-0");
-  sliderContainer.classList.add("flex", "m-auto", "w-100", "overflow-hidden");
-  
-
-  if (media.length === 0) {
-    const mediaImg = document.createElement("img");
-    mediaImg.classList.add("media-img");
-    mediaImg.src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg";
-    mediaContainer.append(mediaImg);
-  } else {
-    media.forEach((img) => {
-      const mediaImg = document.createElement("img");
-      const mediaSlide = document.createElement("div");
-      mediaImg.src = img;
-      mediaImg.classList.add("media-img");
-      mediaSlide.classList.add("max-w-full", "shrink-0");
-      mediaSlide.append(mediaImg);
-      sliderContainer.append(mediaSlide);
-      mediaContainer.append(sliderContainer, sliderLeft, sliderRight);
-
-      let slideCounter = 0;
-
-      sliderRight.addEventListener("click", () => {
-        slideCounter++;
-        console.log(mediaContainer);
-        
-        mediaSlide.forEach((slide) => {
-          slide.style.transform += `translateX(-${slide.width}px)`;
-        });
-        
-      });
-    });
+  /// Carousel function
+  if (media.length === 1) {
+    btnLeft.classList.add("hidden");
+    btnRight.classList.add("hidden");
   }
-*/
+  btnLeft.addEventListener("click", carousel);
+  btnRight.addEventListener("click", carousel);
+
+  function carousel(e) {
+    const offset = e.target.dataset.carouselBtn === "right" ? 1 : -1;
+    const activeSlide = slides.querySelector("[data-active]");
+
+    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+    if (newIndex < 0) {
+      newIndex = slides.children.length - 1;
+    } else if (newIndex >= slides.children.length) {
+      newIndex = 0;
+    }
+    slides.children[newIndex].dataset.active = true;
+    delete activeSlide.dataset.active;
+  }
+
   /// Info
   const infoAndBidsContainer = document.createElement("div");
   const infoContainer = document.createElement("div");

@@ -41,5 +41,8 @@
     "*.css": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "flowbite": "^1.5.4"
   }
 }

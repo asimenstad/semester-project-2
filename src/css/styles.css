@@ -69,6 +69,7 @@
 .media-img {
   aspect-ratio: 7/5;
   object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 
@@ -82,4 +83,9 @@
 
 .listing:hover .media-img {
   transform: scale(1.1);
+}
+
+[data-active] {
+  opacity: 1;
+  z-index: 1;
 }
