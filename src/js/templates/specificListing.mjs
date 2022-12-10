@@ -39,7 +39,7 @@ export function specificListingTemplate(data) {
   btnLeft.dataset.carouselBtn = "left";
   btnRight.dataset.carouselBtn = "right";
 
-  mediaContainer.classList.add("relative");
+  mediaContainer.classList.add("relative", "w-full", "h-fit");
   slides.classList.add("relative", "overflow-hidden", "media-img");
   btnLeft.classList.add("top-2/4", "left-5", "z-30", "flex", "items-center", "absolute", "btn");
   btnRight.classList.add("top-2/4", "right-5", "z-30", "flex", "items-center", "absolute", "btn");
@@ -188,8 +188,15 @@ export function specificListingTemplate(data) {
   });
 
   /// Classes
-  listing.classList.add("flex", "flex-col", "rounded-sm", "mx-auto");
-  infoAndBidsContainer.classList.add("flex", "flex-col", "justify-between", "bg-lightGray", "lg:flex-row");
+  listing.classList.add("flex", "flex-col", "container", "xl:flex-row", "gap-5", "rounded-sm", "mx-auto");
+  infoAndBidsContainer.classList.add(
+    "flex",
+    "flex-col",
+    "justify-between",
+    "bg-lightGray",
+    "lg:flex-row",
+    "xl:flex-col"
+  );
   infoContainer.classList.add("p-6", "flex-auto");
   listingHeader.classList.add(
     "flex",

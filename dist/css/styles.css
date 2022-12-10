@@ -573,6 +573,9 @@ video {
 .mb-5 {
   margin-bottom: 1.25rem;
 }
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -587,9 +590,6 @@ video {
 }
 .mt-6 {
   margin-top: 1.5rem;
-}
-.mb-1 {
-  margin-bottom: 0.25rem;
 }
 .block {
   display: block;
@@ -606,11 +606,21 @@ video {
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+.aspect-auto {
+  aspect-ratio: auto;
+}
 .h-full {
   height: 100%;
 }
 .h-5 {
   height: 1.25rem;
+}
+.h-auto {
+  height: auto;
+}
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -620,6 +630,13 @@ video {
 }
 .w-5 {
   width: 1.25rem;
+}
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.w-auto {
+  width: auto;
 }
 .max-w-lg {
   max-width: 32rem;
@@ -632,6 +649,12 @@ video {
 }
 .max-w-xs {
   max-width: 20rem;
+}
+.max-w-2xl {
+  max-width: 42rem;
+}
+.max-w-screen-lg {
+  max-width: 1024px;
 }
 .flex-auto {
   flex: 1 1 auto;
@@ -772,6 +795,10 @@ video {
 .bg-none {
   background-image: none;
 }
+.object-cover {
+  -o-object-fit: cover;
+  object-fit: cover;
+}
 .p-5 {
   padding: 1.25rem;
 }
@@ -886,12 +913,6 @@ video {
 .opacity-0 {
   opacity: 0;
 }
-.blur {
-  --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
-    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
-    var(--tw-sepia) var(--tw-drop-shadow);
-}
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
     var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
@@ -901,9 +922,6 @@ video {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-.duration-100 {
-  transition-duration: 100ms;
 }
 .duration-200 {
   transition-duration: 200ms;
@@ -1128,5 +1146,23 @@ video {
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:h-full {
+    height: 100%;
+  }
+
+  .xl\:w-auto {
+    width: auto;
+  }
+
+  .xl\:flex-row {
+    flex-direction: row;
+  }
+
+  .xl\:flex-col {
+    flex-direction: column;
   }
 }
