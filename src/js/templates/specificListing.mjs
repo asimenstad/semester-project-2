@@ -39,11 +39,6 @@ export function specificListingTemplate(data) {
   btnLeft.dataset.carouselBtn = "left";
   btnRight.dataset.carouselBtn = "right";
 
-  mediaContainer.classList.add("relative", "w-full", "h-fit");
-  slides.classList.add("relative", "overflow-hidden", "media-img");
-  btnLeft.classList.add("top-2/4", "left-5", "z-30", "flex", "items-center", "absolute", "btn");
-  btnRight.classList.add("top-2/4", "right-5", "z-30", "flex", "items-center", "absolute", "btn");
-
   mediaContainer.append(slides, btnLeft, btnRight);
 
   /// Carousel function
@@ -194,6 +189,7 @@ export function specificListingTemplate(data) {
     "flex-col",
     "justify-between",
     "bg-lightGray",
+    "flex-auto",
     "lg:flex-row",
     "xl:flex-col"
   );
@@ -264,6 +260,10 @@ export function specificListingTemplate(data) {
     "hover:text-white",
     "hover:border-main"
   );
+  mediaContainer.classList.add("relative", "w-full", "h-fit", "flex-auto");
+  slides.classList.add("relative", "overflow-hidden", "media-img");
+  btnLeft.classList.add("top-2/4", "left-5", "z-30", "flex", "items-center", "absolute", "btn");
+  btnRight.classList.add("top-2/4", "right-5", "z-30", "flex", "items-center", "absolute", "btn");
 
   /// Append
 
