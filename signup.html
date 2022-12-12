@@ -129,13 +129,11 @@
       </nav>
     </header>
     <main class="container p-5 mx-auto min-h-screen">
-      <h1 class="font-display text-2xl text-center mb-5">
-        Sign up to create account
-      </h1>
+      <h1 class="sr-only">Sign up to create account</h1>
       <div
-        class="container bg-lightGray p-10 text-center max-w-lg mx-auto rounded-sm"
+        class="container bg-lightGray p-10 text-center max-w-lg mx-auto rounded-sm text-black"
       >
-        <form class="flex flex-col text-left text-black gap-4" id="signUpForm">
+        <form class="flex flex-col text-left gap-4" id="signUpForm">
           <div class="flex flex-col">
             <label for="name">Name*</label>
             <input
@@ -195,6 +193,14 @@
             Create account
           </button>
         </form>
+        <div class="flex justify-center items-center w-full mt-10 mb-5">
+          <hr class="w-full h-0.5 bg-gray rounded border-0" />
+          <p class="absolute bg-lightGray px-4">Or</p>
+        </div>
+        <p class="w-full">Already have an account?</p>
+        <a class="text-main hover:font-medium btn" href="login.html"
+          >Log in here</a
+        >
       </div>
     </main>
     <footer class="container mx-auto p-5">

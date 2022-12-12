@@ -127,13 +127,11 @@
       </nav>
     </header>
     <main class="container p-5 mx-auto min-h-screen">
-      <h1 class="font-display text-2xl text-center mb-5">
-        Log in to your account
-      </h1>
+      <h1 class="sr-only">Log in to your account</h1>
       <div
-        class="container bg-lightGray p-10 text-center max-w-lg mx-auto rounded-sm"
+        class="container bg-lightGray p-10 text-center max-w-lg mx-auto rounded-sm text-black"
       >
-        <form class="flex flex-col text-left text-black gap-4" id="loginForm">
+        <form class="flex flex-col text-left gap-4" id="loginForm">
           <div class="flex flex-col">
             <label for="email">Email address</label>
             <input
@@ -160,6 +158,14 @@
             Log in
           </button>
         </form>
+        <div class="flex justify-center items-center w-full mt-10 mb-5">
+          <hr class="w-full h-0.5 bg-gray rounded border-0" />
+          <p class="absolute bg-lightGray px-4">Or</p>
+        </div>
+        <p class="w-full">Don't have an account?</p>
+        <a class="text-main hover:font-medium btn" href="signup.html"
+          >Sign up here</a
+        >
       </div>
     </main>
     <footer class="container mx-auto p-5">

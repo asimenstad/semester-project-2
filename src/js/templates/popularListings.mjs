@@ -1,4 +1,4 @@
-export function listingTemplate(data) {
+export function popularListingsTemplate(data) {
   const {
     id,
     seller: { name },
@@ -37,7 +37,7 @@ export function listingTemplate(data) {
 
   let highestBid = "None";
   if (bids.length >= 1) {
-    highestBid = `${bids.reverse()[0].amount} $`;
+    highestBid = `${bids[0].amount} $`;
   }
 
   const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
@@ -55,20 +55,24 @@ export function listingTemplate(data) {
   bidEndingContainer.innerHTML = `<div class="flex flex-col"><p class="uppercase">Highest bid</p><p class="font-medium">${highestBid}</p></div>
   <div class="flex flex-col"><p class="uppercase">Ending</p><p class="font-medium">${endsAtFormatted}</p></div>`;
 
-  /// Classes
-  listing.classList.add(
+  // Classes
+  listing.classList.add("hidden");
+  listingContainer.classList.add(
     "container",
     "rounded-sm",
     "bg-lightGray",
     "text-black",
     "flex",
     "flex-col",
-    "mx-auto",
-    "listing"
+    "md:flex-row",
+    "flex-auto",
+    "absolute",
+    "w-full",
+    "md:max-w-full"
   );
-  mediaContainer.classList.add("media-container");
-  mediaImg.classList.add("w-full", "mx-auto", "media-img");
-  infoContainer.classList.add("p-6");
+  mediaContainer.classList.add("w-full", "md:max-w-sm");
+  mediaImg.classList.add("media-img", "h-full");
+  infoContainer.classList.add("p-6", "w-full", "self-center");
   listingHeader.classList.add(
     "flex",
     "flex-wrap",
@@ -79,7 +83,6 @@ export function listingTemplate(data) {
     "capitalize"
   );
   listingTitle.classList.add("font-medium", "text-lg", "mt-4");
-  listingDescription.classList.add("truncate");
   bidEndingContainer.classList.add("flex", "justify-between", "mt-4");
 
   // Append

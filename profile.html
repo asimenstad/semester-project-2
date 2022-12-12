@@ -154,15 +154,15 @@
             </svg>
             <span class="sr-only">Close modal</span>
           </button>
-          <h2 class="font-display text-2xl mb-5">Edit avatar</h2>
-          <div id="currentAvatar"></div>
+          <h2 class="sr-only">Edit avatar</h2>
+          <div class="mx-auto w-40 mb-10" id="currentAvatar"></div>
           <form class="flex flex-col text-left gap-4" id="editAvatarForm">
             <div class="flex flex-col">
-              <label for="avatar">New avatar</label>
+              <label for="avatarInput">New avatar</label>
               <input
                 type="url"
-                name="avatar"
-                id="avatar"
+                name="avatarInput"
+                id="avatarInput"
                 class="border-none rounded-sm p-1"
               />
             </div>
@@ -204,7 +204,7 @@
             </svg>
             <span class="sr-only">Close modal</span>
           </button>
-          <h2 class="font-display text-2xl mb-5">Create new listing</h2>
+          <h2 class="sr-only">Create new listing</h2>
           <form class="flex flex-col text-left gap-4" id="createListingForm">
             <div class="flex flex-col">
               <label for="title">Title*</label>

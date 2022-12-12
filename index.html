@@ -85,7 +85,7 @@
         <div class="md:hidden">
           <ul
             id="menu"
-            class="space-y-6 py-10 w-full bg-darkGray text-center absolute hidden"
+            class="space-y-6 py-10 z-50 w-full bg-darkGray text-center absolute hidden"
           >
             <li>
               <a
@@ -127,12 +127,28 @@
         </div>
       </nav>
     </header>
-    <main class="container p-5 mx-auto min-h-screen">
-      <div class="container">
-        <h1 class="font-display text-2xl">Popular listings</h1>
-        <div class="container"></div>
+    <main class="container p-5 mx-auto min-h-screen flex flex-col gap-80">
+      <div class="container relative flex-auto h-fit mb-80 sm:mb-96 md:mb-0">
+        <div class="flex justify-between items-baseline">
+          <h1 class="font-display text-2xl mb-4">Popular listings</h1>
+          <div class="flex gap-8">
+            <button data-carousel-btn="left">
+              <i
+                class="fa-solid fa-circle-chevron-left text-2xl text-main hover:text-white btn"
+              ></i
+              ><span class="sr-only">Previous</span>
+            </button>
+            <button data-carousel-btn="right">
+              <i
+                class="fa-solid fa-circle-chevron-right text-2xl text-main hover:text-white btn"
+              ></i
+              ><span class="sr-only">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="relative w-full h-full" id="popularListings"></div>
       </div>
-      <div class="container">
+      <div class="container flex-auto">
         <h2 class="font-display text-2xl">All listings</h2>
         <div
           class="space-y-4 md:flex md:space-y-0 justify-between items-baseline"
@@ -188,7 +204,7 @@
               </svg>
               <span class="sr-only">Close modal</span>
             </button>
-            <h2 class="font-display text-2xl mb-5">Create new listing</h2>
+            <h2 class="sr-only">Create new listing</h2>
             <form class="flex flex-col text-left gap-4" id="createListingForm">
               <div class="flex flex-col">
                 <label for="name">Title*</label>

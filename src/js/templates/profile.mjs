@@ -5,7 +5,7 @@ export function profileTemplate(data) {
     credits,
     avatar,
   } = data;
-
+  console.log(data);
   // Containers
   const container = document.getElementById("profileContainer");
   const profileContainer = document.createElement("div");
@@ -72,7 +72,7 @@ export function profileTemplate(data) {
     "md:flex-row"
   );
   avatarContainer.classList.add("mx-auto", "md:mx-0", "p-8", "md:p-0");
-  profileAvatar.classList.add("aspect-square", "max-w-xs");
+  profileAvatar.classList.add("avatar");
   infoContainer.classList.add("flex", "flex-col", "p-8", "text-center", "justify-center", "gap-4", "md:text-left");
   profileName.classList.add("font-display", "text-2xl", "capitalize");
   counts.classList.add("flex", "gap-2", "mx-auto", "md:mx-0");

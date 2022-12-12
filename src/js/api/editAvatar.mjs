@@ -22,6 +22,7 @@ export async function editAvatar(url, data) {
       const errorMessage = json.errors[0].message;
       displayError(errorContainer, errorMessage);
     } else {
+      localStorage.setItem("avatar", json.avatar);
       const form = document.getElementById("editAvatarForm");
       form.reset();
       window.location.reload();

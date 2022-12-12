@@ -71,14 +71,11 @@
   object-fit: cover;
   object-position: center;
   width: 100%;
+  transition: 0.2s all ease-in-out;
 }
 
 .media-container {
   overflow: hidden;
-}
-
-.media-img {
-  transition: 0.2s all ease-in-out;
 }
 
 .listing:hover .media-img {
@@ -88,4 +85,13 @@
 [data-active] {
   opacity: 1;
   z-index: 1;
+  display: flex;
+}
+
+.avatar {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  max-width: 15rem;
 }
