@@ -21,6 +21,7 @@ import { editAvatarListener } from "./listeners/editAvatarListener.mjs";
 import { editListingListener } from "./listeners/editListingListener.mjs";
 import { logout } from "./listeners/logoutListener.mjs";
 import { deleteListingListener } from "./listeners/deleteListingListener.mjs";
+import { hideCreateListingBtn } from "./components/hideCreateListing.mjs";
 
 export const path = location.pathname;
 
@@ -39,6 +40,7 @@ if (path === "/signup.html") {
 } else if (path === "/index.html") {
   fetchListings(`${baseUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}&${sortCreatedFlag}&${orderDescFlag}&${activeFlag}`);
   createListingListener();
+  hideCreateListingBtn();
 } else if (path === "/specific-listing.html") {
   fetchSpecificListing(`${baseUrl}${specificListingUrl}?${sellerFlag}&${bidsFlag}`);
   editListingListener();
