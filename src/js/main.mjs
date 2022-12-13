@@ -22,7 +22,7 @@ import { editAvatarListener } from "./listeners/editAvatarListener.mjs";
 import { editListingListener } from "./listeners/editListingListener.mjs";
 import { logout } from "./listeners/logoutListener.mjs";
 import { deleteListingListener } from "./listeners/deleteListingListener.mjs";
-import { hideCreateListingBtn } from "./components/hideCreateListing.mjs";
+import { hideCreateListingBtn } from "./ui/hideCreateListing.mjs";
 
 export const path = location.pathname;
 
