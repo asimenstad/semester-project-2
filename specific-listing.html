@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://kit.fontawesome.com/0c995894a1.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"
+    ></script>
+    <script defer type="module" src="./src/js/main.mjs"></script>
+    <link rel="stylesheet" href="./dist/css/styles.css" />
+    <title>AuctionHouse</title>
+  </head>
+  <body class="font-body bg-darkGray text-white">
+    <header>
+      <nav class="container relative mx-auto">
+        <div class="flex justify-between items-center p-5">
+          <div class="flex gap-10">
+            <a href="index.html" class="logo font-display">AuctionHouse</a>
+            <div class="hidden md:flex">
+              <ul class="flex space-x-4">
+                <li>
+                  <a
+                    href="index.html"
+                    class="hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                    >Listings</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="profile.html"
+                    class="logged-in hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                    >Profile</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:flex">
+            <ul class="flex space-x-4">
+              <li>
+                <a
+                  href="login.html"
+                  class="logged-out btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
+                  >Log in</a
+                >
+              </li>
+              <li>
+                <a
+                  href="signup.html"
+                  class="logged-out btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                  >Sign up</a
+                >
+              </li>
+              <li>
+                <button
+                  class="logged-in logout-btn hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
+                >
+                  Log out
+                </button>
+              </li>
+            </ul>
+          </div>
+          <button class="hamburger block md:hidden" id="menuBtn">
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+          </button>
+        </div>
+        <div class="md:hidden">
+          <ul
+            id="menu"
+            class="space-y-6 py-10 w-full bg-darkGray text-center z-50 absolute hidden"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="focus:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                >Listings</a
+              >
+            </li>
+            <li>
+              <a
+                href="profile.html"
+                class="logged-in focus:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a
+                href="login.html"
+                class="logged-out btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
+                >Log in</a
+              >
+            </li>
+            <li>
+              <a
+                href="signup.html"
+                class="logged-out btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                >Sign up</a
+              >
+            </li>
+            <li>
+              <button
+                class="logged-in logout-btn hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
+              >
+                Log out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container p-5 mx-auto min-h-screen">
+      <div>
+        <a href="index.html" class="flex items-center gap-2 btn hover:text-main"
+          ><i class="fa-solid fa-chevron-left"></i>Back to all listings</a
+        >
+      </div>
+      <div class="text-black mt-5" id="listingContainer"></div>
+      <div
+        id="editListingModal"
+        tabindex="-1"
+        aria-hidden="true"
+        class="hidden flex items-center justify-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 bg-darkGray/70"
+      >
+        <div
+          class="container relative bg-lightGray p-10 text-center max-w-lg mx-auto text-black rounded-sm"
+        >
+          <button
+            id="closeEditListingModal"
+            class="btn absolute top-3 right-3 text-main rounded-sm p-1 hover:bg-main hover:text-white"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+          <h2 class="font-display text-2xl mb-5">Edit Listing</h2>
+          <form class="flex flex-col text-left gap-4" id="editListingForm">
+            <div class="flex flex-col">
+              <label for="title">Title*</label>
+              <input
+                type="text"
+                name="title"
+                id="titleInput"
+                class="border-none rounded-sm p-1"
+                required
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="description">Description</label>
+              <textarea
+                name="description"
+                id="descriptionInput"
+                class="border-none rounded-sm p-1"
+                rows="4"
+              ></textarea>
+            </div>
+            <div class="flex flex-col">
+              <label for="tags">Tags</label>
+              <input
+                type="text"
+                name="tags"
+                id="tagsInput"
+                class="border-none rounded-sm p-1"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="media">Media</label>
+              <input
+                type="url"
+                name="media"
+                id="mediaInput"
+                class="border-none rounded-sm p-1"
+              />
+            </div>
+            <div id="formError" class="text-center text-red-600"></div>
+            <button
+              type="submit"
+              class="btn border border-main bg-main text-white w-full mt-2 mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black"
+            >
+              Edit listing
+            </button>
+          </form>
+        </div>
+      </div>
+      <div
+        id="deleteListingModal"
+        tabindex="-1"
+        aria-hidden="true"
+        class="hidden flex items-center justify-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 p-4 w-full md:inset-0 bg-darkGray/70"
+      >
+        <div
+          class="container relative bg-lightGray p-10 text-center max-w-lg mx-auto text-black rounded-sm"
+        >
+          <button
+            id="closeDeleteListingModal"
+            class="btn absolute top-3 right-3 text-main rounded-sm p-1 hover:bg-main hover:text-white"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+          <h2 class="font-display text-2xl mb-5">Delete listing</h2>
+          <button
+            id="deleteBtn"
+            type="submit"
+            class="btn border border-red-800 bg-red-800 text-white w-full mt-2 mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="container mx-auto p-5">
+      <div
+        class="flex flex-col text-center justify-between items-center space-y-4 md:flex-row"
+      >
+        <div class="space-x-4 mx-auto md:mx-0 text-2xl">
+          <a href="" class="social-icon hover:text-main"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="" class="social-icon hover:text-main"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="" class="social-icon hover:text-main"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="" class="social-icon hover:text-main"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+        <p>&copy; 2022 AuctionHouse</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/0c995894a1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"
+    ></script>
+    <script type="module" src="./src/js/main.mjs"></script>
+    <link rel="stylesheet" href="./dist/css/styles.css" />
+    <title>Sign up | AuctionHouse</title>
+  </head>
+  <body class="font-body bg-darkGray text-white">
+    <header>
+      <nav class="container relative mx-auto">
+        <div class="flex justify-between items-center p-5">
+          <div class="flex gap-10">
+            <a href="index.html" class="logo font-display">AuctionHouse</a>
+            <div class="hidden md:flex">
+              <ul class="flex space-x-4">
+                <li>
+                  <a
+                    href="index.html"
+                    class="hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                    >Listings</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="profile.html"
+                    class="logged-in hover:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                    >Profile</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:flex">
+            <ul class="flex space-x-4">
+              <li>
+                <a
+                  href="login.html"
+                  class="logged-out btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
+                  >Log in</a
+                >
+              </li>
+              <li>
+                <a
+                  href="signup.html"
+                  class="logged-out btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                  >Sign up</a
+                >
+              </li>
+              <li>
+                <button
+                  class="logged-in logout-btn hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
+                >
+                  Log out
+                </button>
+              </li>
+            </ul>
+          </div>
+          <button class="hamburger block md:hidden" id="menuBtn">
+            <span class="top"></span>
+            <span class="middle"></span>
+            <span class="bottom"></span>
+          </button>
+        </div>
+        <div class="md:hidden">
+          <ul
+            id="menu"
+            class="space-y-6 py-10 w-full bg-darkGray text-center absolute hidden"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="focus:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                >Listings</a
+              >
+            </li>
+            <li>
+              <a
+                href="profile.html"
+                class="logged-in focus:underline hover:font-medium decoration-2 underline-offset-4 decoration-main active:underline"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a
+                href="login.html"
+                class="logged-out btn border border-white px-4 py-1.5 rounded-sm hover:bg-main hover:border-main"
+                >Log in</a
+              >
+            </li>
+            <li>
+              <a
+                href="signup.html"
+                id="signupBtn"
+                class="logged-out btn border border-white bg-white text-black px-4 py-1.5 rounded-sm hover:bg-main hover:text-white hover:border-main"
+                >Sign up</a
+              >
+            </li>
+            <li>
+              <button
+                id="logoutBtn"
+                class="logged-in logout-btn hidden btn border border-white px-4 py-1 rounded-sm hover:bg-main hover:border-main"
+              >
+                Log out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container p-5 mx-auto min-h-screen">
+      <h1 class="sr-only">Sign up to create account</h1>
+      <div
+        class="container bg-lightGray p-10 text-center max-w-lg mx-auto rounded-sm text-black"
+      >
+        <form class="flex flex-col text-left gap-4" id="signUpForm">
+          <div class="flex flex-col">
+            <label for="name">Name*</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              class="name border-none rounded-sm p-1"
+              required
+            />
+            <p class="text-sm text-darkGray">
+              The name must not contain punctuation symbols apart from
+              underscore (_).
+            </p>
+          </div>
+          <div class="flex flex-col">
+            <label for="email">Email*</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="email border-none rounded-sm p-1"
+              pattern="^[\w\-.]+@(stud.)?noroff.no$"
+              required
+            />
+            <p class="text-sm text-darkGray">
+              The email must be a valid stud.noroff.no address.
+            </p>
+          </div>
+          <div class="flex flex-col">
+            <label for="avatar">Avatar (URL)</label>
+            <input
+              type="url"
+              name="avatar"
+              id="avatar"
+              class="border-none rounded-sm p-1"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="password">Password*</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="border-none rounded-sm p-1"
+              minlength="8"
+              required
+            />
+            <p class="text-sm text-darkGray">
+              The password must be at least 8 characters.
+            </p>
+          </div>
+          <div id="formError" class="text-center text-red-600"></div>
+          <button
+            type="submit"
+            class="btn border border-main bg-main text-white w-full mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black"
+          >
+            Create account
+          </button>
+        </form>
+        <div class="flex justify-center items-center w-full mt-10 mb-5">
+          <hr class="w-full h-0.5 bg-gray rounded border-0" />
+          <p class="absolute bg-lightGray px-4">Or</p>
+        </div>
+        <p class="w-full">Already have an account?</p>
+        <a class="text-main hover:font-medium btn" href="login.html"
+          >Log in here</a
+        >
+      </div>
+    </main>
+    <footer class="container mx-auto p-5">
+      <div
+        class="flex flex-col text-center justify-between items-center gap-4 md:flex-row"
+      >
+        <div class="space-x-4 mx-auto md:mx-0 text-2xl">
+          <a href="" class="social-icon hover:text-main"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a href="" class="social-icon hover:text-main"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="" class="social-icon hover:text-main"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="" class="social-icon hover:text-main"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+        <p>&copy; 2022 AuctionHouse</p>
+      </div>
+    </footer>
+  </body>
+</html>
