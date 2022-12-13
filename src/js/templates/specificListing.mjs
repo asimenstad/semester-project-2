@@ -189,21 +189,13 @@ export function specificListingTemplate(data) {
     "flex",
     "flex-col",
     "container",
-    "xl:flex-row",
+    "lg:flex-row",
     "gap-5",
     "rounded-sm",
     "mx-auto",
     "overflow-hidden"
   );
-  infoAndBidsContainer.classList.add(
-    "flex",
-    "flex-col",
-    "justify-between",
-    "bg-lightGray",
-    "flex-auto",
-    "lg:flex-row",
-    "xl:flex-col"
-  );
+  infoAndBidsContainer.classList.add("flex", "flex-col", "justify-between", "bg-lightGray", "flex-auto");
   infoContainer.classList.add("p-6", "flex-auto");
   listingHeader.classList.add(
     "flex",
@@ -271,7 +263,7 @@ export function specificListingTemplate(data) {
     "hover:text-white",
     "hover:border-main"
   );
-  mediaContainer.classList.add("relative", "w-full", "h-fit", "flex-auto");
+  mediaContainer.classList.add("relative", "w-full", "h-fit", "flex-auto", "lg:max-w-xl");
   slides.classList.add("relative", "overflow-hidden", "media-img");
   btnLeft.classList.add("top-2/4", "left-5", "z-30", "flex", "items-center", "absolute");
   btnRight.classList.add("top-2/4", "right-5", "z-30", "flex", "items-center", "absolute");
