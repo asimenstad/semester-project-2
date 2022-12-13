@@ -15,6 +15,7 @@ import {
   activeFlag,
 } from "./constants/url.mjs";
 import { fetchListings } from "./api/fetchListings.mjs";
+import { fetchProfileListings } from "./api/fetchProfileListings.mjs";
 import { fetchSpecificListing } from "./api/fetchSpecificListing.mjs";
 import { createListingListener } from "./listeners/createListingListener.mjs";
 import { editAvatarListener } from "./listeners/editAvatarListener.mjs";
@@ -34,7 +35,7 @@ if (path === "/signup.html") {
   loginUserListener();
 } else if (path === "/profile.html") {
   fetchProfile(`${baseUrl}${profileUrl}?${listingsFlag}`);
-  fetchListings(`${baseUrl}${profileUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}`);
+  fetchProfileListings(`${baseUrl}${profileUrl}${listingsUrl}?${sellerFlag}&${bidsFlag}`);
   createListingListener();
   editAvatarListener();
 } else if (path === "/index.html") {
