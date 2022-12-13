@@ -77,6 +77,8 @@ export function specificListingTemplate(data) {
   const updatedFormatted = new Date(updated).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
   const endsAtFormatted = new Date(endsAt).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
 
+  const sortedBids = bids.sort((a, b) => b.amount - a.amount);
+
   listingSeller.textContent = name;
   listingCreated.textContent = createdFormatted;
   if (created !== updated) {
@@ -87,7 +89,7 @@ export function specificListingTemplate(data) {
 
   let highestBid = "None";
   if (bids.length >= 1) {
-    highestBid = `${bids.reverse()[0].amount} $`;
+    highestBid = `${sortedBids[0].amount} $`;
   }
 
   bidEndingContainer.innerHTML = `<div class="flex flex-col"><p class="uppercase">Highest bid</p><p class="font-medium">${highestBid}</p></div>
@@ -176,14 +178,23 @@ export function specificListingTemplate(data) {
 
   bidsHeader.textContent = `All bids (${bids.length})`;
 
-  bids.forEach((bid) => {
+  sortedBids.forEach((bid) => {
     const { amount, bidderName, created } = bid;
     const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
     allBids.innerHTML += `<div class="flex items-center justify-between py-4"><div><p>${bidderName}</p><p>${createdFormatted}</p></div><div><p>${amount} $</p></div></div>`;
   });
 
   /// Classes
-  listing.classList.add("flex", "flex-col", "container", "xl:flex-row", "gap-5", "rounded-sm", "mx-auto");
+  listing.classList.add(
+    "flex",
+    "flex-col",
+    "container",
+    "xl:flex-row",
+    "gap-5",
+    "rounded-sm",
+    "mx-auto",
+    "overflow-hidden"
+  );
   infoAndBidsContainer.classList.add(
     "flex",
     "flex-col",

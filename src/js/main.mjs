@@ -22,7 +22,7 @@ import { editListingListener } from "./listeners/editListingListener.mjs";
 import { logout } from "./listeners/logoutListener.mjs";
 import { deleteListingListener } from "./listeners/deleteListingListener.mjs";
 
-const path = location.pathname;
+export const path = location.pathname;
 
 openMenu();
 logout();

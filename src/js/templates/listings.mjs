@@ -9,7 +9,6 @@ export function listingTemplate(data) {
     created,
     updated,
     bids,
-    tags,
   } = data;
 
   /// Container
@@ -35,9 +34,10 @@ export function listingTemplate(data) {
   const listingDescription = document.createElement("p");
   const bidEndingContainer = document.createElement("div");
 
+  const sortedBids = bids.sort((a, b) => b.amount - a.amount);
   let highestBid = "None";
   if (bids.length >= 1) {
-    highestBid = `${bids.reverse()[0].amount} $`;
+    highestBid = `${sortedBids[0].amount} $`;
   }
 
   const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
@@ -64,7 +64,8 @@ export function listingTemplate(data) {
     "flex",
     "flex-col",
     "mx-auto",
-    "listing"
+    "listing",
+    "overflow-hidden"
   );
   mediaContainer.classList.add("media-container");
   mediaImg.classList.add("w-full", "mx-auto", "media-img");

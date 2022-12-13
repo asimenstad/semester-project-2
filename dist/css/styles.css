@@ -738,6 +738,10 @@ video {
 .rounded {
   border-radius: 0.25rem;
 }
+.rounded-t-sm {
+  border-top-left-radius: 0.125rem;
+  border-top-right-radius: 0.125rem;
+}
 .border {
   border-width: 1px;
 }
@@ -982,22 +986,10 @@ video {
   display: none;
 }
 
+.btn,
 .social-icon {
   cursor: pointer;
-}
-
-.social-icon:hover {
-  color: #21068a;
-}
-
-.btn,
-.social-icon {
   transition: 0.2s all ease-out;
-}
-
-.btn,
-.social-icon:hover {
-  transition: 0.2s all ease-in;
 }
 
 .media-img {
@@ -1093,6 +1085,16 @@ video {
   color: rgb(8 83 106 / var(--tw-text-opacity));
 }
 
+.hover\:text-gray:hover {
+  --tw-text-opacity: 1;
+  color: rgb(193 193 193 / var(--tw-text-opacity));
+}
+
+.hover\:text-midGray:hover {
+  --tw-text-opacity: 1;
+  color: rgb(135 135 135 / var(--tw-text-opacity));
+}
+
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
@@ -1142,8 +1144,8 @@ video {
     max-width: 100%;
   }
 
-  .md\:max-w-sm {
-    max-width: 24rem;
+  .md\:max-w-md {
+    max-width: 28rem;
   }
 
   .md\:grid-cols-2 {
@@ -1170,6 +1172,10 @@ video {
 }
 
 @media (min-width: 1024px) {
+
+  .lg\:mb-10 {
+    margin-bottom: 2.5rem;
+  }
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));

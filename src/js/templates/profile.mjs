@@ -69,7 +69,8 @@ export function profileTemplate(data) {
     "flex-col",
     "max-w-md",
     "md:max-w-full",
-    "md:flex-row"
+    "md:flex-row",
+    "overflow-hidden"
   );
   avatarContainer.classList.add("mx-auto", "md:mx-0", "p-8", "md:p-0");
   profileAvatar.classList.add("avatar");

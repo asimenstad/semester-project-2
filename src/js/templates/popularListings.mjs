@@ -9,7 +9,6 @@ export function popularListingsTemplate(data) {
     created,
     updated,
     bids,
-    tags,
   } = data;
 
   /// Container
@@ -34,10 +33,11 @@ export function popularListingsTemplate(data) {
   const listingTitle = document.createElement("h4");
   const listingDescription = document.createElement("p");
   const bidEndingContainer = document.createElement("div");
+  const sortedBids = bids.sort((a, b) => b.amount - a.amount);
 
   let highestBid = "None";
   if (bids.length >= 1) {
-    highestBid = `${bids[0].amount} $`;
+    highestBid = `${sortedBids[0].amount} $`;
   }
 
   const createdFormatted = new Date(created).toLocaleString("en-GB", { timeStyle: "short", dateStyle: "short" });
@@ -56,7 +56,7 @@ export function popularListingsTemplate(data) {
   <div class="flex flex-col"><p class="uppercase">Ending</p><p class="font-medium">${endsAtFormatted}</p></div>`;
 
   // Classes
-  listing.classList.add("hidden");
+  listing.classList.add("hidden", "listing");
   listingContainer.classList.add(
     "container",
     "rounded-sm",
@@ -68,9 +68,10 @@ export function popularListingsTemplate(data) {
     "flex-auto",
     "absolute",
     "w-full",
-    "md:max-w-full"
+    "md:max-w-full",
+    "overflow-hidden"
   );
-  mediaContainer.classList.add("w-full", "md:max-w-sm");
+  mediaContainer.classList.add("w-full", "md:max-w-md", "overflow-hidden");
   mediaImg.classList.add("media-img", "h-full");
   infoContainer.classList.add("p-6", "w-full", "self-center");
   listingHeader.classList.add(

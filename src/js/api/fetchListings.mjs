@@ -2,6 +2,7 @@ import { accessToken } from "../constants/storage.mjs";
 import { listingTemplate } from "../templates/listings.mjs";
 import { searchListings } from "../forms/search.mjs";
 import { popularListingsTemplate } from "../templates/popularListings.mjs";
+import { path } from "../main.mjs";
 
 export async function fetchListings(url) {
   try {
@@ -16,7 +17,10 @@ export async function fetchListings(url) {
     displayListings(json);
     displayListingsCount(json);
     searchListings(json);
-    displayCarousel(json);
+
+    if (path === "/index.html") {
+      displayCarousel(json);
+    }
 
     return json;
   } catch (error) {
@@ -54,7 +58,6 @@ function displayCarousel(listings) {
     btn.addEventListener("click", () => {
       const offset = btn.dataset.carouselBtn === "right" ? 1 : -1;
       const activeSlide = container.querySelector("[data-active]");
-      console.log(activeSlide);
 
       let newIndex = [...container.children].indexOf(activeSlide) + offset;
       if (newIndex < 0) {

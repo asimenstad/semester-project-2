@@ -48,22 +48,10 @@
   display: none;
 }
 
+.btn,
 .social-icon {
   cursor: pointer;
-}
-
-.social-icon:hover {
-  color: #21068a;
-}
-
-.btn,
-.social-icon {
   transition: 0.2s all ease-out;
-}
-
-.btn,
-.social-icon:hover {
-  transition: 0.2s all ease-in;
 }
 
 .media-img {
