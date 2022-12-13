@@ -1,3 +1,5 @@
+import { toggleCreateListingModal } from "../ui/createListingModal.mjs";
+
 export function profileTemplate(data) {
   const {
     name,
@@ -38,15 +40,8 @@ export function profileTemplate(data) {
   createListingBtn.textContent = "Create new listing";
 
   /// Modals
-  const createListingModal = document.getElementById("createListingModal");
-  const exitModal = document.getElementById("closeCreateListingModal");
-  createListingBtn.addEventListener("click", () => {
-    createListingModal.classList.toggle("hidden");
-  });
 
-  exitModal.addEventListener("click", () => {
-    createListingModal.classList.toggle("hidden");
-  });
+  createListingBtn.addEventListener("click", toggleCreateListingModal(createListingBtn));
 
   const editAvatarModal = document.getElementById("editAvatarModal");
   const exitAvatarModal = document.getElementById("closeEditAvatarModal");
