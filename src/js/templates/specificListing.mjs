@@ -1,6 +1,7 @@
 import { bidOnListing } from "../api/bid.mjs";
 import { baseUrl, listingsUrl, bidUrl } from "../constants/url.mjs";
 import { username } from "../constants/storage.mjs";
+import { accessToken } from "../constants/storage.mjs";
 
 export function specificListingTemplate(data) {
   const {
@@ -109,10 +110,12 @@ export function specificListingTemplate(data) {
   const label = document.createElement("label");
   const input = document.createElement("input");
   const bidBtn = document.createElement("button");
+  const error = document.createElement("p");
 
   bidTitle.textContent = "Bid on listing";
 
   form.id = "bidForm";
+  error.id = "bidError";
 
   label.textContent = "Amount";
   label.setAttribute("for", "amount");
@@ -127,10 +130,14 @@ export function specificListingTemplate(data) {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const data = {
-      amount: parseInt(input.value),
-    };
-    bidOnListing(`${baseUrl}${listingsUrl}/${id}${bidUrl}`, data);
+    if (accessToken) {
+      const data = {
+        amount: parseInt(input.value),
+      };
+      bidOnListing(`${baseUrl}${listingsUrl}/${id}${bidUrl}`, data);
+    } else {
+      error.innerHTML = `Log in or sign up to bid`;
+    }
   });
 
   /// Edit and delete
@@ -316,12 +323,13 @@ export function specificListingTemplate(data) {
     "indicators",
     "text-xs"
   );
+  error.classList.add("text-red-600");
 
   /// Append
 
   listingHeader.append(listingSeller, listingCreated);
   form.append(label, input, bidBtn);
-  bidFormContainer.append(bidTitle, form);
+  bidFormContainer.append(bidTitle, form, error);
   editDeleteContainer.append(editBtn, deleteBtn);
   infoContainer.append(
     listingHeader,
