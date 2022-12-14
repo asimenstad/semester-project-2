@@ -3,6 +3,11 @@ import { displayError } from "../components/errorMessage.mjs";
 
 const errorContainer = document.getElementById("formError");
 
+/**
+ * Lets user edit their own listings
+ * @param {string} url - The URL for the put request
+ * @param {object} data - The new listing data
+ */
 export async function editListing(url, data) {
   try {
     const putData = {

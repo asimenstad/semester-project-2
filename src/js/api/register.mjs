@@ -2,6 +2,11 @@ import { displayError } from "../components/errorMessage.mjs";
 
 const errorContainer = document.getElementById("formError");
 
+/**
+ * Lets user register account
+ * @param {string} url - The URL for the post request
+ * @param {object} data - The users information data
+ */
 export async function registerUser(url, data) {
   try {
     const postData = {

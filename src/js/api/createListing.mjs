@@ -3,6 +3,11 @@ import { displayError } from "../components/errorMessage.mjs";
 
 const errorContainer = document.getElementById("formError");
 
+/**
+ * Lets user create listing
+ * @param {string} url - The URL for the post request
+ * @param {object} data - The data for the listing
+ */
 export async function createListing(url, data) {
   try {
     const postData = {

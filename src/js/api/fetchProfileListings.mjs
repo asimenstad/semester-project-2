@@ -3,6 +3,11 @@ import { displayListings } from "../ui/listings.mjs";
 import { displayListingsCount } from "../ui/listingCount.mjs";
 import { searchListings } from "../forms/search.mjs";
 
+/**
+ * Fetches users own listings
+ * @param {string} url - The URL for the get request
+ * @returns {array} - Listings
+ */
 export async function fetchProfileListings(url) {
   try {
     const options = {

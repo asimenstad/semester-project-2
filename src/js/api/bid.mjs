@@ -1,5 +1,10 @@
 import { accessToken } from "../constants/storage.mjs";
 
+/**
+ * Lets registered user bid on listings
+ * @param {string} url - URL for the post request
+ * @param {object} data - The amount of the bid
+ */
 export async function bidOnListing(url, data) {
   try {
     const postData = {
