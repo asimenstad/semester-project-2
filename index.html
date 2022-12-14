@@ -125,18 +125,18 @@
       >
         <div class="flex justify-between items-baseline">
           <h1 class="font-display text-2xl mb-4">Popular listings</h1>
-          <div class="flex gap-8">
-            <button data-carousel-btn="left">
-              <i
-                class="fa-solid fa-circle-chevron-left text-2xl text-main hover:text-white btn"
-              ></i
-              ><span class="sr-only">Previous</span>
+          <div
+            id="carouselIndicators"
+            class="indicators text-xs flex gap-3 text-midGray"
+          ></div>
+          <div class="flex gap-10">
+            <button class="btn hover:text-main" data-carousel-btn="left">
+              <i class="fa-solid fa-angle-left"></i>
+              <span class="sr-only">Previous</span>
             </button>
-            <button data-carousel-btn="right">
-              <i
-                class="fa-solid fa-circle-chevron-right text-2xl text-main hover:text-white btn"
-              ></i
-              ><span class="sr-only">Next</span>
+            <button class="btn hover:text-main" data-carousel-btn="right">
+              <i class="fa-solid fa-angle-right"></i>
+              <span class="sr-only">Next</span>
             </button>
           </div>
         </div>

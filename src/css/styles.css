@@ -76,6 +76,11 @@
   display: flex;
 }
 
+.indicators [data-active] {
+  color: #fff;
+  display: block;
+}
+
 .avatar {
   aspect-ratio: 1/1;
   object-fit: cover;

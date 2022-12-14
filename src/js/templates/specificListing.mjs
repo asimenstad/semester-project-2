@@ -27,24 +27,28 @@ export function specificListingTemplate(data) {
   const slides = document.createElement("ul");
   const btnLeft = document.createElement("button");
   const btnRight = document.createElement("button");
+  const indicators = document.createElement("div");
 
   media.forEach((img) => {
     slides.innerHTML += `<li class="absolute inset-0 opacity-0 transition-opacity duration-200 ease-in-out"><img src="${img}" alt="${title}" class="block media-img" /></li>`;
     slides.firstChild.dataset.active = true;
+    indicators.innerHTML += `<span><i class="fa-solid fa-circle"></i></span>`;
+    indicators.firstChild.dataset.active = true;
   });
 
-  btnLeft.innerHTML = `<i class="fa-solid fa-circle-chevron-left text-2xl text-main hover:text-white btn"></i><span class="sr-only">Previous</span>`;
-  btnRight.innerHTML = `<i class="fa-solid fa-circle-chevron-right text-2xl text-main hover:text-white btn"></i><span class="sr-only">Next</span>`;
+  btnLeft.innerHTML = `<i class="fa-solid fa-angle-left"></i><span class="sr-only">Previous</span>`;
+  btnRight.innerHTML = `<i class="fa-solid fa-angle-right"></i><span class="sr-only">Next</span>`;
 
   btnLeft.dataset.carouselBtn = "left";
   btnRight.dataset.carouselBtn = "right";
 
-  mediaContainer.append(slides, btnLeft, btnRight);
+  mediaContainer.append(slides, btnLeft, btnRight, indicators);
 
   /// Carousel function
   if (media.length === 1) {
     btnLeft.classList.add("hidden");
     btnRight.classList.add("hidden");
+    indicators.classList.add("hidden");
   }
   btnLeft.addEventListener("click", carousel);
   btnRight.addEventListener("click", carousel);
@@ -52,6 +56,7 @@ export function specificListingTemplate(data) {
   function carousel(e) {
     const offset = e.target.dataset.carouselBtn === "right" ? 1 : -1;
     const activeSlide = slides.querySelector("[data-active]");
+    const activeIndicator = indicators.querySelector("[data-active]");
 
     let newIndex = [...slides.children].indexOf(activeSlide) + offset;
     if (newIndex < 0) {
@@ -60,7 +65,9 @@ export function specificListingTemplate(data) {
       newIndex = 0;
     }
     slides.children[newIndex].dataset.active = true;
+    indicators.children[newIndex].dataset.active = true;
     delete activeSlide.dataset.active;
+    delete activeIndicator.dataset.active;
   }
 
   /// Info
@@ -265,8 +272,50 @@ export function specificListingTemplate(data) {
   );
   mediaContainer.classList.add("relative", "w-full", "h-fit", "flex-auto", "lg:max-w-xl");
   slides.classList.add("relative", "overflow-hidden", "media-img");
-  btnLeft.classList.add("top-2/4", "left-5", "z-30", "flex", "items-center", "absolute");
-  btnRight.classList.add("top-2/4", "right-5", "z-30", "flex", "items-center", "absolute");
+  btnLeft.classList.add(
+    "top-2/4",
+    "left-5",
+    "z-30",
+    "flex",
+    "items-center",
+    "justify-center",
+    "absolute",
+    "text-main",
+    "bg-white",
+    "rounded-full",
+    "w-5",
+    "h-5",
+    "hover:bg-main",
+    "hover:text-white",
+    "btn"
+  );
+  btnRight.classList.add(
+    "top-2/4",
+    "right-5",
+    "z-30",
+    "flex",
+    "items-center",
+    "justify-center",
+    "absolute",
+    "text-main",
+    "bg-white",
+    "rounded-full",
+    "w-5",
+    "h-5",
+    "hover:bg-main",
+    "hover:text-white",
+    "btn"
+  );
+  indicators.classList.add(
+    "text-midGray",
+    "flex",
+    "items-center",
+    "justify-center",
+    "gap-3",
+    "mt-1",
+    "indicators",
+    "text-xs"
+  );
 
   /// Append
 

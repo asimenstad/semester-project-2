@@ -73,18 +73,11 @@ export function popularListingsTemplate(data) {
   );
   mediaContainer.classList.add("w-full", "md:max-w-md", "overflow-hidden");
   mediaImg.classList.add("media-img", "h-full");
-  infoContainer.classList.add("p-6", "w-full", "self-center");
-  listingHeader.classList.add(
-    "flex",
-    "flex-wrap",
-    "gap-x-1",
-    "justify-between",
-    "items-center",
-    "text-midGray",
-    "capitalize"
-  );
-  listingTitle.classList.add("font-medium", "text-lg", "mt-4");
-  bidEndingContainer.classList.add("flex", "justify-between", "mt-4");
+  infoContainer.classList.add("p-6", "w-full", "self-center", "max-w-lg");
+  listingHeader.classList.add("flex", "flex-wrap", "gap-x-10", "items-center", "text-midGray", "capitalize");
+  listingTitle.classList.add("font-medium", "text-lg", "mt-4", "truncate");
+  listingDescription.classList.add("truncate");
+  bidEndingContainer.classList.add("flex", "gap-x-10", "mt-4");
 
   // Append
   mediaContainer.append(mediaImg);
