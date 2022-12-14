@@ -1132,6 +1132,14 @@ video {
   .sm\:mb-96 {
     margin-bottom: 24rem;
   }
+
+  .sm\:w-full {
+    width: 100%;
+  }
+
+  .sm\:w-auto {
+    width: auto;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1157,6 +1165,10 @@ video {
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:w-auto {
+    width: auto;
   }
 
   .md\:max-w-full {
