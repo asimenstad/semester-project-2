@@ -32,10 +32,10 @@ export function specificListingTemplate(data) {
 
   media.forEach((img) => {
     slides.innerHTML += `<li class="absolute inset-0 opacity-0 transition-opacity duration-200 ease-in-out"><img src="${img}" alt="${title}" class="block media-img" /></li>`;
-    slides.firstChild.dataset.active = true;
     indicators.innerHTML += `<span><i class="fa-solid fa-circle"></i></span>`;
-    indicators.firstChild.dataset.active = true;
   });
+  slides.firstChild.dataset.active = true;
+  indicators.firstChild.dataset.active = true;
 
   btnLeft.innerHTML = `<i class="fa-solid fa-angle-left"></i><span class="sr-only">Previous</span>`;
   btnRight.innerHTML = `<i class="fa-solid fa-angle-right"></i><span class="sr-only">Next</span>`;
@@ -136,7 +136,7 @@ export function specificListingTemplate(data) {
       };
       bidOnListing(`${baseUrl}${listingsUrl}/${id}${bidUrl}`, data);
     } else {
-      error.innerHTML = `Log in or sign up to bid`;
+      error.innerHTML = `<a class="text-main hover:font-medium" href="login.html">Log in</a> or <a class="text-main hover:font-medium" href="signup.html">sign up</a> to bid`;
     }
   });
 
@@ -323,7 +323,6 @@ export function specificListingTemplate(data) {
     "indicators",
     "text-xs"
   );
-  error.classList.add("text-red-600");
 
   /// Append
 
