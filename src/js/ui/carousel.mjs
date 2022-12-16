@@ -2,6 +2,7 @@ import { popularListingsTemplate } from "../templates/popularListings.mjs";
 
 export function displayCarousel(listings) {
   const container = document.getElementById("popularListings");
+  container.innerHTML = "";
   const listingsArray = [...listings];
   const sortedArray = listingsArray.sort((a, b) => b.bids.length - a.bids.length);
   const indicators = document.getElementById("carouselIndicators");
@@ -9,6 +10,7 @@ export function displayCarousel(listings) {
     if (i === 5) {
       break;
     }
+
     const listing = sortedArray[i];
     container.append(popularListingsTemplate(listing));
     indicators.innerHTML += `<span><i class="fa-solid fa-circle"></i></span>`;

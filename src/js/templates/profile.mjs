@@ -7,9 +7,10 @@ export function profileTemplate(data) {
     credits,
     avatar,
   } = data;
-  console.log(data);
+
   // Containers
   const container = document.getElementById("profileContainer");
+  container.innerHTML = "";
   const profileContainer = document.createElement("div");
   const avatarContainer = document.createElement("div");
   const infoContainer = document.createElement("div");
