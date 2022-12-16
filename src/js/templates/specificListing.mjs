@@ -34,11 +34,12 @@ export function specificListingTemplate(data) {
     slides.innerHTML += `<li class="absolute inset-0 opacity-0 transition-opacity duration-200 ease-in-out"><img src="${img}" alt="${title}" class="block media-img" /></li>`;
     indicators.innerHTML += `<span><i class="fa-solid fa-circle"></i></span>`;
   });
+
   slides.firstChild.dataset.active = true;
   indicators.firstChild.dataset.active = true;
 
-  btnLeft.innerHTML = `<i class="fa-solid fa-angle-left"></i><span class="sr-only">Previous</span>`;
-  btnRight.innerHTML = `<i class="fa-solid fa-angle-right"></i><span class="sr-only">Next</span>`;
+  btnLeft.innerHTML = `<i data-carousel-btn="left" class="fa-solid fa-angle-left z-20"></i><span class="sr-only">Previous</span>`;
+  btnRight.innerHTML = `<i data-carousel-btn="right" class="fa-solid fa-angle-right z-20"></i><span class="sr-only">Next</span>`;
 
   btnLeft.dataset.carouselBtn = "left";
   btnRight.dataset.carouselBtn = "right";
