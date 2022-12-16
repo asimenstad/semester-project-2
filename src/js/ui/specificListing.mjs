@@ -5,5 +5,4 @@ export function displayListing(listing) {
   const container = document.getElementById("listingContainer");
   container.innerHTML = "";
   container.append(specificListingTemplate(listing));
-  console.log(listing);
 }

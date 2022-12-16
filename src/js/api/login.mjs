@@ -1,5 +1,4 @@
 import { displayError } from "../components/errorMessage.mjs";
-const errorContainer = document.getElementById("formError");
 
 /**
  * Lets user log in
@@ -27,7 +26,7 @@ export async function loginUser(url, data) {
 
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
       const errorMessage = json.errors[0].message;
-      displayError(errorContainer, errorMessage);
+      displayError(errorMessage);
     } else {
       window.location.href = "profile.html";
     }

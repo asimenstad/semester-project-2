@@ -209,7 +209,7 @@
             <h2 class="sr-only">Create new listing</h2>
             <form class="flex flex-col text-left gap-4" id="createListingForm">
               <div class="flex flex-col">
-                <label for="name">Title*</label>
+                <label for="title">Title*</label>
                 <input
                   type="text"
                   name="title"
@@ -219,7 +219,7 @@
                 />
               </div>
               <div class="flex flex-col">
-                <label for="email">Description</label>
+                <label for="description">Description</label>
                 <textarea
                   name="description"
                   id="description"
@@ -262,7 +262,7 @@
                 />
               </div>
               <div class="flex flex-col">
-                <label for="name">Ending*</label>
+                <label for="ending">Ending*</label>
                 <input
                   type="datetime-local"
                   name="ending"
@@ -272,7 +272,7 @@
                   required
                 />
               </div>
-              <div id="formError" class="text-center text-red-600"></div>
+              <div class="form-error text-center text-red-600"></div>
               <button
                 type="submit"
                 class="btn border border-main bg-main text-white w-full mt-2 mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black"

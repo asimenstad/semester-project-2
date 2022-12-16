@@ -15,7 +15,7 @@
       src="https://kit.fontawesome.com/0c995894a1.js"
       crossorigin="anonymous"
     ></script>
-    <script defer type="module" src="./src/js/main.mjs"></script>
+    <script type="module" src="./src/js/main.mjs"></script>
     <link rel="stylesheet" href="./dist/css/styles.css" />
     <title>AuctionHouse</title>
   </head>
@@ -163,7 +163,7 @@
           <h2 class="sr-only">Edit Listing</h2>
           <form class="flex flex-col text-left gap-4" id="editListingForm">
             <div class="flex flex-col">
-              <label for="title">Title*</label>
+              <label for="titleInput">Title*</label>
               <input
                 type="text"
                 name="title"
@@ -173,7 +173,7 @@
               />
             </div>
             <div class="flex flex-col">
-              <label for="description">Description</label>
+              <label for="descriptionInput">Description</label>
               <textarea
                 name="description"
                 id="descriptionInput"
@@ -183,7 +183,7 @@
             </div>
             <div class="flex flex-col">
               <div class="flex justify-between">
-                <label for="tags">Tags</label>
+                <label for="tagsInput">Tags</label>
                 <button class="btn" id="tagsBtn">
                   <i
                     class="fa-regular fa-square-plus text-main hover:text-black"
@@ -199,7 +199,7 @@
             </div>
             <div class="flex flex-col">
               <div class="flex justify-between">
-                <label for="media">Media</label>
+                <label for="mediaInput">Media</label>
                 <button class="btn" id="mediaBtn">
                   <i
                     class="fa-regular fa-square-plus text-main hover:text-black"
@@ -213,7 +213,7 @@
                 class="border-none rounded-sm p-1 mb-1"
               />
             </div>
-            <div id="formError" class="text-center text-red-600"></div>
+            <div class="form-error text-center text-red-600"></div>
             <button
               type="submit"
               class="btn border border-main bg-main text-white w-full mt-2 mx-auto px-4 py-1.5 rounded-sm hover:bg-black hover:text-white hover:border-black"

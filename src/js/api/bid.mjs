@@ -20,9 +20,8 @@ export async function bidOnListing(url, data) {
     const response = await fetch(url, postData);
     const json = await response.json();
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
-      const errorContainer = document.getElementById("bidError");
       const errorMessage = json.errors[0].message;
-      displayError(errorContainer, errorMessage);
+      displayError(errorMessage);
     } else {
       window.location.reload();
     }

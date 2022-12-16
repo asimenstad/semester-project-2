@@ -1,8 +1,6 @@
 import { accessToken } from "../constants/storage.mjs";
 import { displayError } from "../components/errorMessage.mjs";
 
-const errorContainer = document.getElementById("formError");
-
 /**
  * Lets user edit their own listings
  * @param {string} url - The URL for the put request
@@ -24,7 +22,7 @@ export async function editListing(url, data) {
 
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
       const errorMessage = json.errors[0].message;
-      displayError(errorContainer, errorMessage);
+      displayError(errorMessage);
     } else {
       const form = document.getElementById("editListingForm");
       form.reset();
