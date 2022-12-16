@@ -3,6 +3,11 @@ import { displayError } from "../components/errorMessage.mjs";
 
 const errorContainer = document.getElementById("formError");
 
+/**
+ * Lets user edit their avatar image
+ * @param {string} url - The URL for the put request
+ * @param {object} data - The new avatar data
+ */
 export async function editAvatar(url, data) {
   try {
     const putData = {

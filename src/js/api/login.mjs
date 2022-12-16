@@ -1,6 +1,13 @@
 import { displayError } from "../components/errorMessage.mjs";
 const errorContainer = document.getElementById("formError");
 
+/**
+ * Lets user log in
+ * @param {string} url - The URL for the post request
+ * @param {object} data - The users login information
+ * @returns {object} - The users information and access token
+ */
+
 export async function loginUser(url, data) {
   try {
     const postData = {
@@ -26,6 +33,7 @@ export async function loginUser(url, data) {
     }
     const form = document.getElementById("loginForm");
     form.reset();
+    return json;
   } catch (error) {
     console.log(error);
   }
