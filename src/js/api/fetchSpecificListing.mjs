@@ -1,5 +1,5 @@
 import { accessToken } from "../constants/storage.mjs";
-import { specificListingTemplate } from "../templates/specificListing.mjs";
+import { displayListing } from "../ui/specificListing.mjs";
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -26,11 +26,4 @@ export async function fetchSpecificListing(url) {
   } catch (error) {
     console.log(error);
   }
-}
-
-function displayListing(listing) {
-  document.title = `${listing.title} | AuctionHouse`;
-  const container = document.getElementById("listingContainer");
-  container.append(specificListingTemplate(listing));
-  console.log(listing);
 }
