@@ -116,7 +116,6 @@ export function specificListingTemplate(data) {
   bidTitle.textContent = "Bid on listing";
 
   form.id = "bidForm";
-  error.id = "bidError";
 
   label.textContent = "Amount";
   label.setAttribute("for", "amount");
@@ -324,6 +323,7 @@ export function specificListingTemplate(data) {
     "indicators",
     "text-xs"
   );
+  error.classList.add("form-error");
 
   /// Append
 

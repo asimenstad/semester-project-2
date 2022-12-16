@@ -1,8 +1,6 @@
 import { accessToken } from "../constants/storage.mjs";
 import { displayError } from "../components/errorMessage.mjs";
 
-const errorContainer = document.getElementById("formError");
-
 /**
  * Lets user create listing
  * @param {string} url - The URL for the post request
@@ -22,10 +20,9 @@ export async function createListing(url, data) {
     const response = await fetch(url, postData);
     const json = await response.json();
 
-    console.log(json);
     if ((json.statusCode === 400) | (json.statusCode === 500)) {
       const errorMessage = json.errors[0].message;
-      displayError(errorContainer, errorMessage);
+      displayError(errorMessage);
     } else {
       const form = document.getElementById("createListingForm");
       form.reset();
