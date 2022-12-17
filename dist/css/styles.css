@@ -932,6 +932,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(38 38 38 / var(--tw-text-opacity));
 }
+.text-gray {
+  --tw-text-opacity: 1;
+  color: rgb(193 193 193 / var(--tw-text-opacity));
+}
 .decoration-main {
   text-decoration-color: #08536a;
 }
