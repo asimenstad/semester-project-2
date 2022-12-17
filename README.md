@@ -1,5 +1,4 @@
 # AuctionHouse
-![Screenshot of AuctionHouse](https://user-images.githubusercontent.com/91472586/208123363-3878abec-49aa-4400-a9cd-6acd1c416a2b.png)
 
 
 ## Description 
