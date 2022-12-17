@@ -22,6 +22,12 @@ export function createListingListener() {
       newMediaInput.value = "";
       lastMediaElement.after(newMediaInput);
       mediaArray.push(newMediaInput);
+    } else {
+      const errorContainer = document.getElementById("errorMedia");
+      errorContainer.innerHTML = `Please fill in the current input before adding another one.`;
+      setTimeout(() => {
+        errorContainer.innerHTML = "";
+      }, 5000);
     }
   });
 
@@ -34,6 +40,12 @@ export function createListingListener() {
       newTagInput.value = "";
       lastTagsElement.after(newTagInput);
       tagsArray.push(newTagInput);
+    } else {
+      const errorContainer = document.getElementById("errorTags");
+      errorContainer.innerHTML = `Please fill in the current input before adding another one.`;
+      setTimeout(() => {
+        errorContainer.innerHTML = "";
+      }, 5000);
     }
   });
 
