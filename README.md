@@ -1,5 +1,8 @@
 # AuctionHouse
 
+[Hosted demo](https://resilient-lolly-a0cb56.netlify.app/index.html)
+
+![image](https://user-images.githubusercontent.com/91472586/208242355-a52cc529-848e-4083-bc04-352dd6696948.png)
 
 ## Description 
 
