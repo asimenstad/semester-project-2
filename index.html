@@ -132,11 +132,17 @@
             class="indicators text-xs flex gap-3 text-midGray"
           ></div>
           <div class="flex gap-10">
-            <button class="btn hover:text-main" data-carousel-btn="left">
+            <button
+              class="btn w-5 h-5 flex items-center justify-center rounded-full hover:bg-white hover:text-main"
+              data-carousel-btn="left"
+            >
               <i class="fa-solid fa-angle-left"></i>
               <span class="sr-only">Previous</span>
             </button>
-            <button class="btn hover:text-main" data-carousel-btn="right">
+            <button
+              class="btn w-5 h-5 flex items-center justify-center rounded-full hover:bg-white hover:text-main"
+              data-carousel-btn="right"
+            >
               <i class="fa-solid fa-angle-right"></i>
               <span class="sr-only">Next</span>
             </button>
@@ -153,7 +159,7 @@
       <div class="container flex-auto">
         <h2 class="font-display text-2xl">All listings</h2>
         <div
-          class="space-y-4 md:flex md:space-y-0 justify-between items-baseline"
+          class="flex flex-col sm:flex-row gap-8 justify-between items-baseline"
         >
           <p id="listingsCount"></p>
           <form class="flex" id="searchForm">
@@ -243,10 +249,11 @@
                   class="border-none rounded-sm p-1 mb-1"
                   minlength="1"
                 />
+                <span class="text-red-600" id="errorTags"></span>
               </div>
               <div class="flex flex-col">
                 <div class="flex justify-between">
-                  <label for="media">Media</label>
+                  <label for="media">Media (URL)</label>
                   <button class="btn" id="mediaBtn">
                     <i
                       class="fa-regular fa-square-plus text-main hover:text-black"
@@ -260,6 +267,7 @@
                   class="border-none rounded-sm p-1 mb-1"
                   minlength="1"
                 />
+                <span class="text-red-600" id="errorMedia"></span>
               </div>
               <div class="flex flex-col">
                 <label for="ending">Ending*</label>

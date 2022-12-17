@@ -3,8 +3,12 @@ import { listingTemplate } from "../templates/listings.mjs";
 export function searchListings(listings) {
   const listingArray = [...listings];
   const search = document.getElementById("search");
+  const searchForm = document.getElementById("searchForm");
 
-  search.addEventListener("input", (e) => {
+  searchForm.addEventListener("submit", searchEvent);
+  search.addEventListener("input", searchEvent);
+
+  function searchEvent(e) {
     e.preventDefault();
     const searchValue = search.value;
     const filteredListings = listingArray.filter((listing) => {
@@ -25,7 +29,7 @@ export function searchListings(listings) {
     filteredListings.forEach((listing) => {
       container.append(listingTemplate(listing));
     });
-  });
+  }
   if (window.location.reload) {
     search.value = "";
   }
